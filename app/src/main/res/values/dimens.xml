@@ -23,4 +23,6 @@
     <!-- Specific -->
     <dimen name="item_movie_width">196dp</dimen>
     <dimen name="item_movie_height">248dp</dimen>
+
+    <dimen name="movie_title_min_height">60dp</dimen>
 </resources>

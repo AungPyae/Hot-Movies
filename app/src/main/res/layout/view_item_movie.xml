@@ -1,75 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/item_movie_width"
-    android:layout_height="@dimen/item_movie_height">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/iv_poster"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        tools:src="@drawable/movie_poster" />
+    <data>
 
-    <LinearLayout
-        android:id="@+id/ll_container_popularity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="right|center_vertical"
-        android:orientation="horizontal"
-        android:padding="@dimen/margin_medium">
+        <import type="android.view.View" />
+
+        <variable
+            name="movie"
+            type="net.aung.popularmovies.data.vos.MovieVO" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="@dimen/item_movie_width"
+        android:layout_height="@dimen/item_movie_height">
 
         <ImageView
+            android:id="@+id/iv_poster"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:imageUrl="@{movie.poster_path}"
+            tools:src="@drawable/movie_poster" />
+
+        <net.aung.popularmovies.views.pods.ViewPodMoviePopularity
+            android:id="@+id/vp_movie_popularity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/margin_small"
-            android:src="@drawable/movie_popularity_star" />
+            android:orientation="horizontal"
+            android:paddingRight="@dimen/margin_medium"
+            android:paddingTop="@dimen/margin_medium"
+            />
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/MovieTitle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/margin_small"
-            android:src="@drawable/movie_popularity_star" />
+            android:layout_alignParentBottom="true"
+            android:text="@{movie.title}"
+            tools:text="Terminator Genisys" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/margin_small"
-            android:src="@drawable/movie_popularity_star" />
+        <net.aung.popularmovies.views.components.textview.LobsterRegularTextView
+            android:id="@+id/tv_rating"
+            style="@style/MoviePopularity"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentRight="true"
+            android:layout_above="@id/tv_title"
+            android:layout_margin="@dimen/margin_small"
+            android:text="@{movie.vote_average}"
+            tools:text="6.2" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/margin_small"
-            android:src="@drawable/movie_popularity_star" />
+    </RelativeLayout>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/margin_small"
-            android:src="@drawable/movie_popularity_star" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tv_rating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/ll_container_popularity"
-        android:paddingRight="@dimen/margin_medium"
-        android:textColor="@color/text_white"
-        tools:text="6.2" />
-
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/movie_title_bg"
-        android:padding="@dimen/margin_medium"
-        android:textColor="@color/text_white"
-        android:textSize="@dimen/text_regular_2x"
-        tools:text="Terminator Genisys" />
-
-</RelativeLayout>
+</layout>

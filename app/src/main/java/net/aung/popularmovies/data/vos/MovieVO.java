@@ -6,45 +6,31 @@ package net.aung.popularmovies.data.vos;
  */
 public class MovieVO {
 
-    private final int id;
-    private final String poster_path;
-    private final boolean adult;
-    private final String overview;
-    private final String release_date;
-    private final int[] genre_ids;
-    private final String original_title;
-    private final String original_language;
-    private final String title;
-    private final String backdrop_path;
-    private final float popularity;
-    private final int vote_count;
-    private final boolean video;
-    private final float vote_average;
+    public static final String IMAGE_BASE_PATH = "http://image.tmdb.org/t/p/";
+    public static final String IMAGE_SIZE_W185 = "w185";
+    public static final String IMAGE_SIZE_W500 = "w500";
 
-    //TODO consider to optimize the Constructor. Maybe Builder Pattern.
-    public MovieVO(int id, String poster_path, boolean adult, String overview, String release_date, int[] genre_ids, String original_title, String original_language, String title, String backdrop_path, float popularity, int vote_count, boolean video, float vote_average) {
-        this.id = id;
-        this.poster_path = poster_path;
-        this.adult = adult;
-        this.overview = overview;
-        this.release_date = release_date;
-        this.genre_ids = genre_ids;
-        this.original_title = original_title;
-        this.original_language = original_language;
-        this.title = title;
-        this.backdrop_path = backdrop_path;
-        this.popularity = popularity;
-        this.vote_count = vote_count;
-        this.video = video;
-        this.vote_average = vote_average;
-    }
+    private int id;
+    private String poster_path;
+    private boolean adult;
+    private String overview;
+    private String release_date;
+    private int[] genre_ids;
+    private String original_title;
+    private String original_language;
+    private String title;
+    private String backdrop_path;
+    private float popularity;
+    private int vote_count;
+    private boolean video;
+    private float vote_average;
 
     public int getId() {
         return id;
     }
 
     public String getPoster_path() {
-        return poster_path;
+        return IMAGE_BASE_PATH + IMAGE_SIZE_W500 + poster_path;
     }
 
     public boolean isAdult() {
@@ -91,7 +77,7 @@ public class MovieVO {
         return video;
     }
 
-    public float getVote_average() {
-        return vote_average;
+    public String getVote_average() {
+        return String.format("%.1f", vote_average);
     }
 }
