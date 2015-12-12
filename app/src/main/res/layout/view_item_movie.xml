@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/item_movie_width"
+    android:layout_height="@dimen/item_movie_height">
+
+    <ImageView
+        android:id="@+id/iv_poster"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/movie_poster" />
+
+    <LinearLayout
+        android:id="@+id/ll_container_popularity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right|center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin_medium">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/margin_small"
+            android:src="@drawable/movie_popularity_star" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/margin_small"
+            android:src="@drawable/movie_popularity_star" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/margin_small"
+            android:src="@drawable/movie_popularity_star" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/margin_small"
+            android:src="@drawable/movie_popularity_star" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/margin_small"
+            android:src="@drawable/movie_popularity_star" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/ll_container_popularity"
+        android:paddingRight="@dimen/margin_medium"
+        android:textColor="@color/text_white"
+        tools:text="6.2" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/movie_title_bg"
+        android:padding="@dimen/margin_medium"
+        android:textColor="@color/text_white"
+        android:textSize="@dimen/text_regular_2x"
+        tools:text="Terminator Genisys" />
+
+</RelativeLayout>
