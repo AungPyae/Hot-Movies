@@ -9,6 +9,6 @@
     <color name="icons">#212121</color>
     <color name="divider">#B6B6B6</color>
 
-    <color name="movie_title_bg">#8000</color>
+    <color name="black_transparent_overlay">#8000</color>
     <color name="text_white">#FFF</color>
 </resources>

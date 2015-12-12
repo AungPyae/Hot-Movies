@@ -54,8 +54,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieViewHolder> {
         return movieList.size();
     }
 
-    public void setMovieList(@NonNull List<MovieVO> newMovieList) {
-        movieList.clear();
+    public void appendMovieList(@NonNull List<MovieVO> newMovieList) {
         movieList.addAll(newMovieList);
         notifyDataSetChanged();
     }

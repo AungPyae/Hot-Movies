@@ -22,7 +22,6 @@ public final class DataBinder {
 
     @BindingAdapter("imageUrl")
     public static void setImageUrl(ImageView iv, String imageUrl) {
-        Log.d("TAG", "Loading Image Url : "+imageUrl);
         Context context = iv.getContext();
         Glide.with(context)
                 .load(imageUrl)

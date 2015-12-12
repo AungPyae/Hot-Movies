@@ -18,7 +18,7 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="MovieTitle">
-        <item name="android:background">@color/movie_title_bg</item>
+        <item name="android:background">@color/black_transparent_overlay</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:maxLines">2</item>
         <item name="android:minHeight">@dimen/movie_title_min_height</item>

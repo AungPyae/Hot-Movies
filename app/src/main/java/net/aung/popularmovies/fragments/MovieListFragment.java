@@ -9,9 +9,11 @@ import android.view.ViewGroup;
 
 import net.aung.popularmovies.R;
 import net.aung.popularmovies.adapters.MovieListAdapter;
-import net.aung.popularmovies.data.model.MovieModel;
 import net.aung.popularmovies.data.vos.MovieVO;
-import net.aung.popularmovies.views.pods.ViewPodMoviePopularity;
+import net.aung.popularmovies.mvp.presenters.MovieListPresenter;
+import net.aung.popularmovies.mvp.views.MovieListView;
+import net.aung.popularmovies.views.components.ViewComponentLoader;
+import net.aung.popularmovies.views.components.recyclerview.SmartScrollListener;
 
 import java.util.List;
 
@@ -21,12 +23,18 @@ import butterknife.ButterKnife;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MovieListFragment extends Fragment {
+public class MovieListFragment extends Fragment
+        implements MovieListView {
 
     @Bind(R.id.rv_movies)
     RecyclerView rvMovies;
 
+    @Bind(R.id.vc_loader)
+    ViewComponentLoader vcLoader;
+
     private MovieListAdapter movieListAdapter;
+    private MovieListPresenter movieListPresenter;
+    private SmartScrollListener smartScrollListener;
 
     public static MovieListFragment newInstance() {
         MovieListFragment fragment = new MovieListFragment();
@@ -40,8 +48,12 @@ public class MovieListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        List<MovieVO> movieList = MovieModel.getInstance().loadDummyMovieList();
-        movieListAdapter = MovieListAdapter.newInstance(movieList);
+        movieListAdapter = MovieListAdapter.newInstance();
+
+        movieListPresenter = new MovieListPresenter(this);
+        movieListPresenter.onCreate();
+
+        smartScrollListener = new SmartScrollListener(movieListPresenter);
     }
 
     @Override
@@ -51,7 +63,39 @@ public class MovieListFragment extends Fragment {
         ButterKnife.bind(this, rootView);
 
         rvMovies.setAdapter(movieListAdapter);
+        rvMovies.addOnScrollListener(smartScrollListener);
 
         return rootView;
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        movieListPresenter.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        movieListPresenter.onStop();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        movieListPresenter.onDestroy();
+    }
+
+    @Override
+    public boolean isMovieListEmpty() {
+        return movieListAdapter == null || movieListAdapter.getItemCount() == 0;
+    }
+
+    @Override
+    public void appendMovieList(List<MovieVO> movieList) {
+        vcLoader.dismissLoader();
+        movieListAdapter.appendMovieList(movieList);
+    }
+
+
 }

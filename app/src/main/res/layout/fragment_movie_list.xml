@@ -4,13 +4,20 @@
     android:layout_height="match_parent"
     tools:context=".fragments.MovieListFragment">
 
-    <net.aung.popularmovies.views.components.AutofitRecyclerView
+    <net.aung.popularmovies.views.components.recyclerview.AutofitRecyclerView
         android:id="@+id/rv_movies"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:columnWidth="@dimen/item_movie_width"
         android:clipToPadding="false"
         android:layout_margin="5dp"
+        />
+
+    <include
+        android:id="@+id/vc_loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/view_component_loader"
         />
 
 </RelativeLayout>
