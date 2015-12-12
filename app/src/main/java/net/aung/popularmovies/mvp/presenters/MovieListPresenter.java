@@ -5,7 +5,7 @@ import android.util.Log;
 
 import net.aung.popularmovies.data.model.MovieModel;
 import net.aung.popularmovies.data.vos.MovieVO;
-import net.aung.popularmovies.events.Event;
+import net.aung.popularmovies.events.DataEvent;
 import net.aung.popularmovies.mvp.views.MovieListView;
 import net.aung.popularmovies.views.components.recyclerview.SmartScrollListener;
 
@@ -38,7 +38,7 @@ public class MovieListPresenter extends BasePresenter
 
     }
 
-    public void onEventMainThread(Event.MovieListLoadedEvent event) {
+    public void onEventMainThread(DataEvent.MovieListLoadedEvent event) {
         currentPageNumber = event.getLoadedPageNumber() + 1;
         movieListView.appendMovieList(event.getMovieList());
     }

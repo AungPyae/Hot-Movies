@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by aung on 12/12/15.
  */
-public class Event {
+public class DataEvent {
 
     public static class MovieListLoadedEvent {
 

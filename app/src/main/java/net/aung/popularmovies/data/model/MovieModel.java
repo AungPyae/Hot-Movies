@@ -6,7 +6,7 @@ import android.util.SparseArray;
 
 import net.aung.popularmovies.data.responses.MovieDiscoverResponse;
 import net.aung.popularmovies.data.vos.MovieVO;
-import net.aung.popularmovies.events.Event;
+import net.aung.popularmovies.events.DataEvent;
 import net.aung.popularmovies.utils.CommonInstances;
 import net.aung.popularmovies.utils.JsonUtils;
 
@@ -84,7 +84,7 @@ public class MovieModel {
             super.onPostExecute(response);
             movieSparseArray.put(pageNumber, response.getResults()); //put it into cache first.
 
-            Event.MovieListLoadedEvent event = new Event.MovieListLoadedEvent(movieSparseArray.get(pageNumber), pageNumber);
+            DataEvent.MovieListLoadedEvent event = new DataEvent.MovieListLoadedEvent(movieSparseArray.get(pageNumber), pageNumber);
             EventBus.getDefault().post(event);
 
             isLoading = false;
