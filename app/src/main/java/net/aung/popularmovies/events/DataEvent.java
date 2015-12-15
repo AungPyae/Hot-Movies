@@ -1,5 +1,6 @@
 package net.aung.popularmovies.events;
 
+import net.aung.popularmovies.data.responses.MovieDiscoverResponse;
 import net.aung.popularmovies.data.vos.MovieVO;
 
 import java.util.List;
@@ -25,6 +26,30 @@ public class DataEvent {
 
         public int getLoadedPageNumber() {
             return loadedPageNumber;
+        }
+    }
+
+    public static class LoadedMovieDiscoverEvent {
+        private MovieDiscoverResponse response;
+
+        public LoadedMovieDiscoverEvent(MovieDiscoverResponse response) {
+            this.response = response;
+        }
+
+        public MovieDiscoverResponse getResponse() {
+            return response;
+        }
+    }
+
+    public static class FailedToLoadDataEvent {
+        private String message;
+
+        public FailedToLoadDataEvent(String message) {
+            this.message = message;
+        }
+
+        public String getMessage() {
+            return message;
         }
     }
 }

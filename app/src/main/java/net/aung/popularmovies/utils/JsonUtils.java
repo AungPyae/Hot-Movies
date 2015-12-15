@@ -4,9 +4,7 @@ import android.content.Context;
 
 import net.aung.popularmovies.PopularMoviesApplication;
 
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,8 +33,8 @@ public class JsonUtils {
     }
 
     /**
-     *
      * Read text from assets folder.
+     *
      * @param fileName
      * @return
      * @throws IOException
@@ -57,7 +55,7 @@ public class JsonUtils {
      * @throws JSONException
      */
     public String loadDummyData(String fileName) throws IOException, JSONException {
-        byte[] buffer = readJsonFile(PATH_DUMMY_DATA+"/"+fileName);
+        byte[] buffer = readJsonFile(PATH_DUMMY_DATA + "/" + fileName);
         return new String(buffer, "UTF-8").toString();
     }
 }

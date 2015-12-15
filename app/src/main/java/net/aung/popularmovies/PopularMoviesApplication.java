@@ -8,6 +8,8 @@ import android.content.Context;
  */
 public class PopularMoviesApplication extends Application {
 
+    public static final String TAG = PopularMoviesApplication.class.getSimpleName();
+
     private static Context context;
 
     @Override

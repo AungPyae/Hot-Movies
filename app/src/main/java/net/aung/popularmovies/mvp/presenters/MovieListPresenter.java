@@ -3,6 +3,7 @@ package net.aung.popularmovies.mvp.presenters;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import net.aung.popularmovies.PopularMoviesApplication;
 import net.aung.popularmovies.data.model.MovieModel;
 import net.aung.popularmovies.data.vos.MovieVO;
 import net.aung.popularmovies.events.DataEvent;
@@ -16,8 +17,6 @@ import java.util.List;
  */
 public class MovieListPresenter extends BasePresenter
         implements SmartScrollListener.ControllerSmartScroll {
-
-    private static final String TAG = MovieListPresenter.class.getSimpleName();
 
     private MovieListView movieListView;
     private int currentPageNumber = MovieModel.INITIAL_PAGE_NUMBER;
@@ -45,7 +44,7 @@ public class MovieListPresenter extends BasePresenter
 
     @Override
     public void onListEndReached() {
-        Log.d(TAG, "onListEndReached");
+        Log.d(PopularMoviesApplication.TAG, "onListEndReached");
         if (currentPageNumber != MovieModel.INITIAL_PAGE_NUMBER) {
             loadNewMovieList();
         }

@@ -9,12 +9,12 @@ import com.bumptech.glide.Glide;
 
 import net.aung.popularmovies.R;
 
+import java.util.Random;
+
 /**
  * Created by aung on 12/12/15.
  */
 public final class DataBinder {
-
-    private static final String TAG = DataBinder.class.getSimpleName();
 
     public DataBinder() {
 
