@@ -160,22 +160,20 @@ public class MovieDetailFragment extends BaseFragment
             final Palette.Swatch colorLightVarient = (darkVibrantSwatch != null)
                     ? lightVibrantSwatch : lightMutedSwatch;
 
-            setDarkVibrantColor(colorDarkVaient);
-            setLightVibrantColor(colorLightVarient);
+            setPaletteForRootContainer(colorDarkVaient);
+            setPaletteforTagLine(colorDarkVaient, colorLightVarient);
             //setVibrantColor(vibrantSwatch);
         }
     }
 
-    private void setDarkVibrantColor(Palette.Swatch swatch) {
-        if(swatch != null){
-            svContainerTrailer.setBackgroundColor(swatch.getRgb());
-            tvTagLine.setTextColor(swatch.getRgb());
-        }
+    private void setPaletteForRootContainer(Palette.Swatch colorDarkVaient) {
+        svContainerTrailer.setBackgroundColor(colorDarkVaient.getRgb());
     }
 
-    private void setLightVibrantColor(Palette.Swatch swatch) {
-        if(swatch != null){
-            tvTagLine.setBackgroundColor(swatch.getRgb());
+    private void setPaletteforTagLine(Palette.Swatch colorDarkVaient, Palette.Swatch colorLightVarient) {
+        if(colorDarkVaient != null && colorLightVarient != null) {
+            tvTagLine.setTextColor(colorDarkVaient.getRgb());
+            tvTagLine.setBackgroundColor(colorLightVarient.getRgb());
         }
     }
 }
