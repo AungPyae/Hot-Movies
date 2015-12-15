@@ -1,9 +1,7 @@
 package net.aung.popularmovies.views.viewholders;
 
 import android.databinding.DataBindingUtil;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
 
 import net.aung.popularmovies.R;
 import net.aung.popularmovies.controllers.MovieItemController;

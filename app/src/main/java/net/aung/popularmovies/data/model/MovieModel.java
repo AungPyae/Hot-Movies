@@ -1,8 +1,8 @@
 package net.aung.popularmovies.data.model;
 
 import android.os.AsyncTask;
+import android.support.v4.util.ArrayMap;
 import android.util.Log;
-import android.util.SparseArray;
 
 import net.aung.popularmovies.PopularMoviesApplication;
 import net.aung.popularmovies.data.responses.MovieDiscoverResponse;
@@ -18,7 +18,6 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import de.greenrobot.event.EventBus;
 
@@ -33,7 +32,7 @@ public class MovieModel {
 
     private static MovieModel objInstance = getInstance(); //active initiating.
 
-    private SparseArray<ArrayList<MovieVO>> movieSparseArray;
+    private ArrayMap<Integer, MovieVO> movieArrayMap;
     private MovieDataSource movieDataSource;
 
     public static MovieModel getInstance() {
@@ -45,7 +44,7 @@ public class MovieModel {
     }
 
     private MovieModel() {
-        movieSparseArray = new SparseArray<>();
+        movieArrayMap = new ArrayMap<>();
         movieDataSource = MovieDataSourceImpl.getInstance();
 
         EventBus eventBus = EventBus.getDefault();
@@ -56,15 +55,13 @@ public class MovieModel {
     }
 
     //Async
-    public List<MovieVO> loadMovieListByPage(int pageNumber, boolean isForce) {
+    public void loadMovieListByPage(int pageNumber, boolean isForce) {
         Log.d(PopularMoviesApplication.TAG, "loading new movie list for page " + pageNumber);
-        List<MovieVO> movieList = movieSparseArray.get(pageNumber);
-        if (movieList == null || isForce) {
-            //new MovieLoaderTask(isForce).execute(pageNumber);
-            movieDataSource.discoverMovieList(pageNumber, RestApiConstants.DEFAULT_SORT_BY, isForce);
-        }
+        movieDataSource.discoverMovieList(pageNumber, RestApiConstants.DEFAULT_SORT_BY, isForce);
+    }
 
-        return movieList;
+    public MovieVO loadMovieDetailByMovieId(int movieId) {
+        return movieArrayMap.get(movieId);
     }
 
     public void onEventMainThread(DataEvent.LoadedMovieDiscoverEvent event) {
@@ -74,12 +71,18 @@ public class MovieModel {
 
         ArrayList<MovieVO> loadedMovieList = response.getResults();
         if (isForce) {
-            movieSparseArray.clear();
+            movieArrayMap.clear();
         }
-        movieSparseArray.put(currentPageNumber, loadedMovieList);
+        storeInArrayMap(loadedMovieList);
 
         DataEvent.MovieListLoadedEvent movieListLoadedEvent = new DataEvent.MovieListLoadedEvent(loadedMovieList, currentPageNumber, event.isForce());
         EventBus.getDefault().post(movieListLoadedEvent);
+    }
+
+    private void storeInArrayMap(ArrayList<MovieVO> loadedMovieList) {
+        for (MovieVO movie : loadedMovieList) {
+            movieArrayMap.put(movie.getId(), movie);
+        }
     }
 
     private class MovieLoaderTask extends AsyncTask<Integer, Void, MovieDiscoverResponse> {
@@ -110,9 +113,9 @@ public class MovieModel {
         @Override
         protected void onPostExecute(MovieDiscoverResponse response) {
             super.onPostExecute(response);
-            movieSparseArray.put(pageNumber, response.getResults()); //put it into cache first.
+            storeInArrayMap(response.getResults());
 
-            DataEvent.MovieListLoadedEvent event = new DataEvent.MovieListLoadedEvent(movieSparseArray.get(pageNumber), pageNumber, isForce);
+            DataEvent.MovieListLoadedEvent event = new DataEvent.MovieListLoadedEvent(new ArrayList<>(movieArrayMap.values()), pageNumber, isForce);
             EventBus.getDefault().post(event);
         }
     }

@@ -42,11 +42,7 @@ public class MovieListPresenter extends BasePresenter {
     }
 
     private void loadNewMovieList() {
-        List<MovieVO> movieList = MovieModel.getInstance().loadMovieListByPage(currentPageNumber, false);
-        if (movieList != null) {
-            currentPageNumber++;
-            movieListView.displayMovieList(movieList, true);
-        }
+       MovieModel.getInstance().loadMovieListByPage(currentPageNumber, false);
     }
 
     public void forceRefresh() {

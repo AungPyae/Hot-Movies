@@ -64,4 +64,8 @@ public class DataEvent {
             return message;
         }
     }
+
+    public static class LoadedMovieDetailEvent {
+
+    }
 }

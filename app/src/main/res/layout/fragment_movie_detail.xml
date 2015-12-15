@@ -15,12 +15,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="5">
+        android:weightSum="2">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3">
+            android:layout_weight="1">
 
             <ImageView
                 android:id="@+id/iv_backdrop"
@@ -28,26 +28,31 @@
                 android:layout_height="match_parent"
                 android:foreground="@color/black_transparent_overlay"
                 android:scaleType="centerCrop"
+                app:imageUrl="@{movie.backdropPath}"
                 tools:src="@drawable/movie_backdrop" />
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingRight="@dimen/margin_medium">
+                android:paddingRight="@dimen/margin_medium"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
                 <RelativeLayout
                     android:id="@+id/fl_container_poster"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:elevation="@dimen/poster_elevation">
 
                     <ImageView
                         android:id="@+id/iv_poster"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/item_movie_width"
+                        android:layout_height="@dimen/item_movie_height"
                         android:layout_marginLeft="@dimen/margin_medium_2"
                         android:layout_marginTop="@dimen/margin_medium_2"
+                        android:layout_marginBottom="@dimen/margin_medium_2"
                         app:imageUrl="@{movie.posterPath}"
                         tools:src="@drawable/movie_poster" />
 
@@ -63,54 +68,59 @@
                         android:textSize="@dimen/text_regular_3x"
                         tools:text="6.2" />
 
-                    <net.aung.popularmovies.views.pods.ViewPodMoviePopularity
-                        android:id="@+id/vp_movie_popularity"
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:orientation="horizontal"
-                        android:paddingRight="@dimen/margin_medium"
-                        android:paddingTop="@dimen/margin_medium" />
+                        android:layout_marginLeft="@dimen/margin_medium"
+                        android:layout_marginTop="@dimen/margin_large"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_heading_1x"
+                        android:text="@{movie.title}"
+                        tools:text="Ant-Man" />
+
+                    <ScrollView
+                        android:id="@+id/sv_overview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignLeft="@id/tv_title"
+                        android:layout_below="@id/tv_title"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:paddingBottom="@dimen/margin_medium">
+
+                        <TextView
+                            android:id="@+id/tv_overview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:lineSpacingExtra="1.2dp"
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_regular"
+                            android:text="@{movie.overview}"
+                            tools:text="Armed with the astonishing ability to shrink in scale but increase in strength, con-man Scott Lang must embrace his inner-hero and help his mentor, Dr. Hank Pym, protect the secret behind his spectacular Ant-Man suit from a new generation of towering threats. Against seemingly insurmountable obstacles, Pym and Lang must plan and pull off a heist that will save the world." />
+
+                    </ScrollView>
 
                 </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/tv_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/fl_container_poster"
-                    android:layout_marginLeft="@dimen/margin_medium"
-                    android:layout_marginTop="@dimen/margin_medium_2"
-                    android:layout_toRightOf="@id/fl_container_poster"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textColor="@color/text_white"
-                    android:textSize="@dimen/text_heading_1x"
-                    android:text="@{movie.title}"
-                    tools:text="Ant-Man" />
+            </LinearLayout>
 
-                <ScrollView
-                    android:id="@+id/sv_overview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignLeft="@id/tv_title"
-                    android:layout_below="@id/tv_title"
-                    android:layout_marginTop="@dimen/margin_medium"
-                    android:paddingBottom="@dimen/margin_medium">
-
-                    <TextView
-                        android:id="@+id/tv_overview"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:lineSpacingExtra="1.2dp"
-                        android:textColor="@color/text_white"
-                        android:textSize="@dimen/text_regular"
-                        android:text="@{movie.overview}"
-                        tools:text="Armed with the astonishing ability to shrink in scale but increase in strength, con-man Scott Lang must embrace his inner-hero and help his mentor, Dr. Hank Pym, protect the secret behind his spectacular Ant-Man suit from a new generation of towering threats. Against seemingly insurmountable obstacles, Pym and Lang must plan and pull off a heist that will save the world." />
-
-                </ScrollView>
-
-            </RelativeLayout>
+            <net.aung.popularmovies.views.pods.ViewPodMoviePopularity
+                android:id="@+id/vp_movie_popularity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/margin_medium"
+                android:paddingBottom="@dimen/margin_medium_2" />
 
         </FrameLayout>
 
@@ -120,7 +130,6 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical">
-
 
         </LinearLayout>
 

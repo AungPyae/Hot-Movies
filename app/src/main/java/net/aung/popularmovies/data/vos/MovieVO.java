@@ -91,7 +91,7 @@ public class MovieVO {
     }
 
     public String getBackdropPath() {
-        return backdropPath;
+        return IMAGE_BASE_PATH + IMAGE_SIZE_W500 + backdropPath;
     }
 
     public float getPopularity() {
