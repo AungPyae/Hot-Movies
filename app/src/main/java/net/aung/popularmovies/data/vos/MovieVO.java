@@ -1,5 +1,7 @@
 package net.aung.popularmovies.data.vos;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Immutable.
  * Created by aung on 12/12/15.
@@ -10,27 +12,54 @@ public class MovieVO {
     public static final String IMAGE_SIZE_W185 = "w185";
     public static final String IMAGE_SIZE_W500 = "w500";
 
+    @SerializedName("id")
     private int id;
-    private String poster_path;
+
+    @SerializedName("poster_path")
+    private String posterPath;
+
+    @SerializedName("adult")
     private boolean adult;
+
+    @SerializedName("overview")
     private String overview;
-    private String release_date;
-    private int[] genre_ids;
-    private String original_title;
-    private String original_language;
+
+    @SerializedName("release_date")
+    private String releaseDate;
+
+    @SerializedName("genre_ids")
+    private int[] genreIds;
+
+    @SerializedName("original_title")
+    private String originalTitle;
+
+    @SerializedName("original_language")
+    private String originalLanguage;
+
+    @SerializedName("title")
     private String title;
-    private String backdrop_path;
+
+    @SerializedName("backdrop_path")
+    private String backdropPath;
+
+    @SerializedName("popularity")
     private float popularity;
-    private int vote_count;
+
+    @SerializedName("vote_count")
+    private int voteCount;
+
+    @SerializedName("video")
     private boolean video;
-    private float vote_average;
+
+    @SerializedName("vote_average")
+    private float voteAverage;
 
     public int getId() {
         return id;
     }
 
-    public String getPoster_path() {
-        return IMAGE_BASE_PATH + IMAGE_SIZE_W500 + poster_path;
+    public String getPosterPath() {
+        return IMAGE_BASE_PATH + IMAGE_SIZE_W500 + posterPath;
     }
 
     public boolean isAdult() {
@@ -41,43 +70,43 @@ public class MovieVO {
         return overview;
     }
 
-    public String getRelease_date() {
-        return release_date;
+    public String getReleaseDate() {
+        return releaseDate;
     }
 
-    public int[] getGenre_ids() {
-        return genre_ids;
+    public int[] getGenreIds() {
+        return genreIds;
     }
 
-    public String getOriginal_title() {
-        return original_title;
+    public String getOriginalTitle() {
+        return originalTitle;
     }
 
-    public String getOriginal_language() {
-        return original_language;
+    public String getOriginalLanguage() {
+        return originalLanguage;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public String getBackdrop_path() {
-        return backdrop_path;
+    public String getBackdropPath() {
+        return backdropPath;
     }
 
     public float getPopularity() {
         return popularity;
     }
 
-    public int getVote_count() {
-        return vote_count;
+    public int getVoteCount() {
+        return voteCount;
     }
 
     public boolean isVideo() {
         return video;
     }
 
-    public String getVote_average() {
-        return String.format("%.1f", vote_average);
+    public String getVoteAverage() {
+        return String.format("%.1f", voteAverage);
     }
 }

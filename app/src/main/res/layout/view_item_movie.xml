@@ -21,7 +21,7 @@
             android:id="@+id/iv_poster"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:imageUrl="@{movie.poster_path}"
+            app:imageUrl="@{movie.posterPath}"
             tools:src="@drawable/movie_poster" />
 
         <net.aung.popularmovies.views.pods.ViewPodMoviePopularity
@@ -50,7 +50,7 @@
             android:layout_alignParentRight="true"
             android:layout_above="@id/tv_title"
             android:layout_margin="@dimen/margin_small"
-            android:text="@{movie.vote_average}"
+            android:text="@{movie.voteAverage}"
             tools:text="6.2" />
 
     </RelativeLayout>
