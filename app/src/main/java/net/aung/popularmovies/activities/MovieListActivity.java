@@ -3,6 +3,7 @@ package net.aung.popularmovies.activities;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import net.aung.popularmovies.R;
 import net.aung.popularmovies.controllers.MovieItemController;
 import net.aung.popularmovies.data.vos.MovieVO;
+import net.aung.popularmovies.fragments.MovieDetailFragment;
 import net.aung.popularmovies.fragments.MovieListFragment;
 
 public class MovieListActivity extends BaseActivity
@@ -67,6 +69,10 @@ public class MovieListActivity extends BaseActivity
 
     @Override
     public void onNavigateToDetail(MovieVO movie) {
-        Toast.makeText(getApplicationContext(), "Tap on movie", Toast.LENGTH_SHORT).show();
+        getSupportFragmentManager().beginTransaction()
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .replace(R.id.fl_container, MovieDetailFragment.newInstance(movie.getId()))
+                .addToBackStack(null)
+                .commit();
     }
 }
