@@ -10,5 +10,5 @@ import java.util.List;
 public interface MovieListView {
 
     boolean isMovieListEmpty();
-    void appendMovieList(List<MovieVO> movieList);
+    void displayMovieList(List<MovieVO> movieList, boolean isToAppend);
 }

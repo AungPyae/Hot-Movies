@@ -14,10 +14,12 @@ public class DataEvent {
 
         private List<MovieVO> movieList;
         private int loadedPageNumber;
+        private boolean isForce;
 
-        public MovieListLoadedEvent(List<MovieVO> movieList, int loadedPageNumber) {
+        public MovieListLoadedEvent(List<MovieVO> movieList, int loadedPageNumber, boolean isForce) {
             this.movieList = movieList;
             this.loadedPageNumber = loadedPageNumber;
+            this.isForce = isForce;
         }
 
         public List<MovieVO> getMovieList() {
@@ -27,17 +29,27 @@ public class DataEvent {
         public int getLoadedPageNumber() {
             return loadedPageNumber;
         }
+
+        public boolean isForce() {
+            return isForce;
+        }
     }
 
     public static class LoadedMovieDiscoverEvent {
         private MovieDiscoverResponse response;
+        private boolean isForce;
 
-        public LoadedMovieDiscoverEvent(MovieDiscoverResponse response) {
+        public LoadedMovieDiscoverEvent(MovieDiscoverResponse response, boolean isForce) {
             this.response = response;
+            this.isForce = isForce;
         }
 
         public MovieDiscoverResponse getResponse() {
             return response;
+        }
+
+        public boolean isForce() {
+            return isForce;
         }
     }
 

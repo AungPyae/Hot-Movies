@@ -15,8 +15,7 @@ import java.util.List;
 /**
  * Created by aung on 12/12/15.
  */
-public class MovieListPresenter extends BasePresenter
-        implements SmartScrollListener.ControllerSmartScroll {
+public class MovieListPresenter extends BasePresenter {
 
     private MovieListView movieListView;
     private int currentPageNumber = MovieModel.INITIAL_PAGE_NUMBER;
@@ -39,22 +38,25 @@ public class MovieListPresenter extends BasePresenter
 
     public void onEventMainThread(DataEvent.MovieListLoadedEvent event) {
         currentPageNumber = event.getLoadedPageNumber() + 1;
-        movieListView.appendMovieList(event.getMovieList());
-    }
-
-    @Override
-    public void onListEndReached() {
-        Log.d(PopularMoviesApplication.TAG, "onListEndReached");
-        if (currentPageNumber != MovieModel.INITIAL_PAGE_NUMBER) {
-            loadNewMovieList();
-        }
+        movieListView.displayMovieList(event.getMovieList(), !event.isForce());
     }
 
     private void loadNewMovieList() {
-        List<MovieVO> movieList = MovieModel.getInstance().loadMovieListByPage(currentPageNumber);
+        List<MovieVO> movieList = MovieModel.getInstance().loadMovieListByPage(currentPageNumber, false);
         if (movieList != null) {
             currentPageNumber++;
-            movieListView.appendMovieList(movieList);
+            movieListView.displayMovieList(movieList, true);
+        }
+    }
+
+    public void forceRefresh() {
+        currentPageNumber = MovieModel.INITIAL_PAGE_NUMBER;
+        MovieModel.getInstance().loadMovieListByPage(currentPageNumber, true);
+    }
+
+    public void loadMoreData() {
+        if (currentPageNumber != MovieModel.INITIAL_PAGE_NUMBER) {
+            loadNewMovieList();
         }
     }
 }

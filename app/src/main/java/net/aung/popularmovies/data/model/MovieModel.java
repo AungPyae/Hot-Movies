@@ -34,9 +34,7 @@ public class MovieModel {
     private static MovieModel objInstance = getInstance(); //active initiating.
 
     private SparseArray<ArrayList<MovieVO>> movieSparseArray;
-    private boolean isLoading = false;
     private MovieDataSource movieDataSource;
-    private int currentPageNumber;
 
     public static MovieModel getInstance() {
         if (objInstance == null) {
@@ -55,36 +53,43 @@ public class MovieModel {
             eventBus.register(this);
         }
 
-        loadMovieListByPage(INITIAL_PAGE_NUMBER);
     }
 
     //Async
-    public List<MovieVO> loadMovieListByPage(int pageNumber) {
+    public List<MovieVO> loadMovieListByPage(int pageNumber, boolean isForce) {
         Log.d(PopularMoviesApplication.TAG, "loading new movie list for page " + pageNumber);
-        currentPageNumber = pageNumber;
         List<MovieVO> movieList = movieSparseArray.get(pageNumber);
-        if (movieList == null && !isLoading) {
-            isLoading = true;
-            //new MovieLoaderTask().execute(pageNumber);
-            movieDataSource.discoverMovieList(pageNumber, RestApiConstants.DEFAULT_SORT_BY);
+        if (movieList == null || isForce) {
+            //new MovieLoaderTask(isForce).execute(pageNumber);
+            movieDataSource.discoverMovieList(pageNumber, RestApiConstants.DEFAULT_SORT_BY, isForce);
         }
 
         return movieList;
     }
 
     public void onEventMainThread(DataEvent.LoadedMovieDiscoverEvent event) {
-        ArrayList<MovieVO> loadedMovieList = event.getResponse().getResults();
+        boolean isForce = event.isForce();
+        MovieDiscoverResponse response = event.getResponse();
+        int currentPageNumber = response.getPage();
+
+        ArrayList<MovieVO> loadedMovieList = response.getResults();
+        if (isForce) {
+            movieSparseArray.clear();
+        }
         movieSparseArray.put(currentPageNumber, loadedMovieList);
 
-        DataEvent.MovieListLoadedEvent movieListLoadedEvent = new DataEvent.MovieListLoadedEvent(loadedMovieList, currentPageNumber);
+        DataEvent.MovieListLoadedEvent movieListLoadedEvent = new DataEvent.MovieListLoadedEvent(loadedMovieList, currentPageNumber, event.isForce());
         EventBus.getDefault().post(movieListLoadedEvent);
-
-        isLoading = false;
     }
 
     private class MovieLoaderTask extends AsyncTask<Integer, Void, MovieDiscoverResponse> {
 
         private int pageNumber;
+        private boolean isForce;
+
+        public MovieLoaderTask(boolean isForce) {
+            this.isForce = isForce;
+        }
 
         @Override
         protected MovieDiscoverResponse doInBackground(Integer... params) {
@@ -107,10 +112,8 @@ public class MovieModel {
             super.onPostExecute(response);
             movieSparseArray.put(pageNumber, response.getResults()); //put it into cache first.
 
-            DataEvent.MovieListLoadedEvent event = new DataEvent.MovieListLoadedEvent(movieSparseArray.get(pageNumber), pageNumber);
+            DataEvent.MovieListLoadedEvent event = new DataEvent.MovieListLoadedEvent(movieSparseArray.get(pageNumber), pageNumber, isForce);
             EventBus.getDefault().post(event);
-
-            isLoading = false;
         }
     }
 }

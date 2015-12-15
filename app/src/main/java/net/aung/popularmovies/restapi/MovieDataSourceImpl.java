@@ -38,7 +38,7 @@ public class MovieDataSourceImpl implements MovieDataSource {
     }
 
     @Override
-    public void discoverMovieList(int pageNumber, String sortBy) {
+    public void discoverMovieList(int pageNumber, String sortBy, final boolean isForce) {
         Call<MovieDiscoverResponse> movieDiscoverResponseCall = theMovieApi.discoverMovieList(
                 BuildConfig.THE_MOVIE_API_KEY,
                 pageNumber,
@@ -50,7 +50,7 @@ public class MovieDataSourceImpl implements MovieDataSource {
             public void onResponse(Response<MovieDiscoverResponse> response, Retrofit retrofit) {
                 MovieDiscoverResponse movieDiscoverResponse = response.body();
                 if (movieDiscoverResponse != null) {
-                    DataEvent.LoadedMovieDiscoverEvent event = new DataEvent.LoadedMovieDiscoverEvent(movieDiscoverResponse);
+                    DataEvent.LoadedMovieDiscoverEvent event = new DataEvent.LoadedMovieDiscoverEvent(movieDiscoverResponse, isForce);
                     EventBus.getDefault().post(event);
                 } else {
                     DataEvent.FailedToLoadDataEvent event = new DataEvent.FailedToLoadDataEvent(response.message());
