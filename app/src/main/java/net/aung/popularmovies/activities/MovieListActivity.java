@@ -18,6 +18,7 @@ import net.aung.popularmovies.data.vos.MovieVO;
 import net.aung.popularmovies.data.vos.TrailerVO;
 import net.aung.popularmovies.fragments.MovieDetailFragment;
 import net.aung.popularmovies.fragments.MovieListFragment;
+import net.aung.popularmovies.utils.YoutubeUtils;
 
 public class MovieListActivity extends BaseActivity
         implements MovieItemController,
@@ -81,6 +82,6 @@ public class MovieListActivity extends BaseActivity
 
     @Override
     public void onShowTrailer(TrailerVO trailer) {
-
+        YoutubeUtils.getObjInstance().playYoutbueVideo(this, trailer.getKey());
     }
 }

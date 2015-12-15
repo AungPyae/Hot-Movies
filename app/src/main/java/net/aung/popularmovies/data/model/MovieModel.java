@@ -66,7 +66,7 @@ public class MovieModel {
         return movieArrayMap.get(movieId);
     }
 
-    public void loadTrailerListByMovieId(int movieId) {
+    public List<TrailerVO> loadTrailerListByMovieId(int movieId) {
         Log.d(PopularMoviesApplication.TAG, "loading trailer list for movieId " + movieId);
         MovieVO movie = movieArrayMap.get(movieId);
         List<TrailerVO> trailerList = movie.getTrailerList();
@@ -74,6 +74,8 @@ public class MovieModel {
         if (trailerList == null) {
             movieDataSource.getMovieTrailers(movieId);
         }
+
+        return trailerList;
     }
 
     public void onEventMainThread(DataEvent.LoadedMovieDiscoverEvent event) {

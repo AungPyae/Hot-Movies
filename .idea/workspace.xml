@@ -27,29 +27,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52ab9b83-d365-42e5-9253-0b47d1729746" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/controllers/TrailerItemController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/views/components/recyclerview/TrailerItemDecoration.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/adapters/TrailerListAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/views/viewholders/TrailerViewHolder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/view_item_trailer.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/utils/YoutubeUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/views/viewholders/BaseViewHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/views/viewholders/BaseViewHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/data/databinder/DataBinder.java" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/data/databinder/DataBinder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/events/DataEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/events/DataEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/restapi/MovieDataSourceImpl.java" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/restapi/MovieDataSourceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/fragments/MovieDetailFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/fragments/MovieDetailFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/mvp/presenters/MovieDetailPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/mvp/presenters/MovieDetailPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/mvp/views/MovieDetailView.java" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/mvp/views/MovieDetailView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/activities/MovieListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/activities/MovieListActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/mvp/presenters/MovieListPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/mvp/presenters/MovieListPresenter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/data/model/MovieModel.java" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/data/model/MovieModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/data/vos/MovieVO.java" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/data/vos/MovieVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/views/viewholders/MovieViewHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/views/viewholders/MovieViewHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/restapi/TheMovieApi.java" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/restapi/TheMovieApi.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/data/vos/TrailerVO.java" afterPath="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/data/vos/TrailerVO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_movie_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_movie_detail.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -92,44 +79,101 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="view_item_trailer.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_item_trailer.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
+      <file leaf-file-name="MovieModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/data/model/MovieModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38566554">
-              <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="77" column="27" selection-start-line="77" selection-start-column="27" selection-end-line="77" selection-end-column="27" />
               <folding>
-                <element signature="e#439#465#0" expanded="true" />
-                <element signature="e#496#521#0" expanded="true" />
-                <element signature="e#1136#1154#0" expanded="true" />
-                <element signature="e#1586#1607#0" expanded="true" />
-                <element signature="e#2028#2049#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#2008#2009#0" expanded="true" />
+                <element signature="e#2057#2058#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <file leaf-file-name="MovieDataSourceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/restapi/MovieDataSourceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.62069">
-              <caret line="27" column="60" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="60" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MovieDetailFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/fragments/MovieDetailFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MovieDetailPresenter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/mvp/presenters/MovieDetailPresenter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="79" selection-start-line="19" selection-start-column="79" selection-end-line="19" selection-end-column="79" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TrailerVO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/data/vos/TrailerVO.java">
+      <file leaf-file-name="fragment_movie_detail.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_movie_detail.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6005025">
+              <caret line="133" column="16" selection-start-line="133" selection-start-column="16" selection-end-line="133" selection-end-column="16" />
+              <folding>
+                <element signature="e#854#890#0" expanded="true" />
+                <element signature="e#1510#1532#0" expanded="true" />
+                <element signature="e#1997#2022#0" expanded="true" />
+                <element signature="e#2165#2190#0" expanded="true" />
+                <element signature="e#2241#2267#0" expanded="true" />
+                <element signature="e#2322#2346#0" expanded="true" />
+                <element signature="e#2400#2424#0" expanded="true" />
+                <element signature="e#2481#2505#0" expanded="true" />
+                <element signature="e#2889#2910#0" expanded="true" />
+                <element signature="e#3216#3240#0" expanded="true" />
+                <element signature="e#3801#3823#0" expanded="true" />
+                <element signature="e#3877#3898#0" expanded="true" />
+                <element signature="e#4080#4104#0" expanded="true" />
+                <element signature="e#4656#4678#0" expanded="true" />
+                <element signature="e#4729#4751#0" expanded="true" />
+                <element signature="e#5045#5069#0" expanded="true" />
+                <element signature="e#5328#5349#0" expanded="true" />
+                <element signature="e#6371#6393#0" expanded="true" />
+                <element signature="e#6436#6460#0" expanded="true" />
+                <element signature="e#6915#6939#0" expanded="true" />
+                <element signature="e#7031#7055#0" expanded="true" />
+                <element signature="e#7294#7321#0" expanded="true" />
+                <element signature="e#7753#7786#0" expanded="true" />
+                <element signature="e#7827#7853#0" expanded="true" />
+                <element signature="e#7949#7973#0" expanded="true" />
+                <element signature="e#8014#8038#0" expanded="true" />
+                <element signature="e#8080#8104#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dimens.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
-              <folding>
-                <element signature="e#1085#1086#0" expanded="true" />
-                <element signature="e#1161#1162#0" expanded="true" />
-              </folding>
+              <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -140,72 +184,22 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.935484">
-              <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+            <state vertical-scroll-proportion="-15.451612">
+              <caret line="43" column="80" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="80" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fragment_movie_detail.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_movie_detail.xml">
+      <file leaf-file-name="view_item_trailer.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_item_trailer.xml">
           <provider editor-type-id="android-designer">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.741936">
-              <caret line="135" column="56" selection-start-line="135" selection-start-column="56" selection-end-line="135" selection-end-column="56" />
-              <folding>
-                <element signature="e#6230#6254#0" expanded="true" />
-                <element signature="e#6287#6311#0" expanded="true" />
-                <element signature="e#6611#6637#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DividerItemDecoration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/views/components/recyclerview/DividerItemDecoration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state vertical-scroll-proportion="-19.32258">
+              <caret line="51" column="49" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="49" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TrailerItemDecoration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/views/components/recyclerview/TrailerItemDecoration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding>
-                <element signature="e#849#919#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MovieDetailFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/fragments/MovieDetailFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="104" column="76" selection-start-line="104" selection-start-column="76" selection-end-line="104" selection-end-column="76" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AutofitRecyclerView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/views/components/recyclerview/AutofitRecyclerView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -1872,7 +1866,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/network/MovieDataSource.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/network/TheMovieApi.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/network/NetworkConstants.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
@@ -1893,7 +1886,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/fragments/MovieListFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/adapters/MovieListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/fragments/BaseFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/view_item_movie.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/mvp/presenters/BasePresenter.java" />
@@ -1911,18 +1903,20 @@
         <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/adapters/TrailerListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/mvp/views/MovieDetailView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/data/vos/MovieVO.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/data/model/MovieModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/mvp/presenters/MovieListPresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/activities/MovieListActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/mvp/presenters/MovieDetailPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/restapi/TheMovieApi.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/restapi/MovieDataSourceImpl.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/events/DataEvent.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/data/databinder/DataBinder.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/fragments/MovieDetailFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_movie_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/views/components/recyclerview/TrailerItemDecoration.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/view_item_trailer.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/utils/YoutubeUtils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/activities/MovieListActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/data/model/MovieModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/mvp/presenters/MovieDetailPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/fragments/MovieDetailFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_movie_detail.xml" />
       </list>
     </option>
   </component>
@@ -2528,6 +2522,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hot-Movies" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hot-Movies" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="popularmovies" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="restapi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -2907,12 +2935,13 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Aleph Projs/mastercard-payzy-android/MasterCard-PayZy-Android" />
     <property name="android.project.structure.last.selected" value="Project" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="SearchEverywhereHistoryKey" value="MovieD&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/java/net/aung/popularmovies/fragments/MovieDetailFragment.java&#10;detail&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/res/layout/fragment_movie_detail.xml&#10;DataEve&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/java/net/aung/popularmovies/events/DataEvent.java&#10;Presen&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/java/net/aung/popularmovies/mvp/presenters/MovieListPresenter.java&#10;movie&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/res/layout/fragment_movie_detail.xml&#10;movie_l&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/res/layout/fragment_movie_list.xml&#10;item&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/res/layout/view_item_movie.xml&#10;view_item&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/res/layout/view_item_movie.xml&#10;FRagment&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/java/net/aung/popularmovies/fragments/MovieListFragment.java&#10;MovieList&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/java/net/aung/popularmovies/fragments/MovieListFragment.java&#10;style&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/res/values/styles.xml&#10;dimen&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/res/values/dimens.xml&#10;AutoF&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/java/net/aung/popularmovies/views/components/AutofitRecyclerView.java&#10;color&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/res/values/colors.xml" />
+    <property name="SearchEverywhereHistoryKey" value="trai&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/res/layout/view_item_trailer.xml&#10;MOvieMo&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/java/net/aung/popularmovies/data/model/MovieModel.java&#10;Pre&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/java/net/aung/popularmovies/mvp/presenters/MovieDetailPresenter.java&#10;MovieD&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/java/net/aung/popularmovies/fragments/MovieDetailFragment.java&#10;detail&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/res/layout/fragment_movie_detail.xml&#10;DataEve&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/java/net/aung/popularmovies/events/DataEvent.java&#10;Presen&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/java/net/aung/popularmovies/mvp/presenters/MovieListPresenter.java&#10;movie&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/res/layout/fragment_movie_detail.xml&#10;movie_l&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/res/layout/fragment_movie_list.xml&#10;item&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/res/layout/view_item_movie.xml&#10;view_item&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/res/layout/view_item_movie.xml&#10;FRagment&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/java/net/aung/popularmovies/fragments/MovieListFragment.java&#10;MovieList&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/java/net/aung/popularmovies/fragments/MovieListFragment.java&#10;style&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/res/values/styles.xml&#10;dimen&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/res/values/dimens.xml&#10;AutoF&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/java/net/aung/popularmovies/views/components/AutofitRecyclerView.java&#10;color&#9;FILE&#9;file:///Users/aung/Repos/My Projs/Android/Hot-Movies/app/src/main/res/values/colors.xml" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="net.aung.popularmovies.utils" />
       <recent name="net.aung.popularmovies.views.components.recyclerview" />
       <recent name="net.aung.popularmovies.adapters" />
       <recent name="net.aung.popularmovies.views.components" />
@@ -3116,7 +3145,7 @@
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5095745" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5117021" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -3130,7 +3159,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3296" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23085107" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3163,15 +3192,9 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/mvp/presenters/MovieDetailPresenter.java</url>
-          <line>33</line>
+          <line>39</line>
           <properties />
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/data/model/MovieModel.java</url>
-          <line>92</line>
-          <properties />
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/data/model/MovieModel.java</url>
@@ -3187,7 +3210,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/fragments/MovieDetailFragment.java</url>
-          <line>139</line>
+          <line>141</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
@@ -3197,14 +3220,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31746033">
-          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_movie.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3298,14 +3313,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="59" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -3498,14 +3505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/activities/MovieListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/fragments/MovieListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3519,38 +3518,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/mvp/presenters/MovieDetailPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/data/model/MovieModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2008#2009#0" expanded="true" />
-            <element signature="e#2057#2058#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/restapi/MovieDataSourceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="93" selection-start-line="71" selection-start-column="93" selection-end-line="71" selection-end-column="93" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2517#3040#0" expanded="true" />
-            <element signature="e#3039#3040#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3596,48 +3563,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/fragments/MovieDetailFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="104" column="76" selection-start-line="104" selection-start-column="76" selection-end-line="104" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/views/components/recyclerview/TrailerItemDecoration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <element signature="e#849#919#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_item_movie.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.935484">
-          <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_movie_detail.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.741936">
-          <caret line="135" column="56" selection-start-line="135" selection-start-column="56" selection-end-line="135" selection-end-column="56" />
-          <folding>
-            <element signature="e#6230#6254#0" expanded="true" />
-            <element signature="e#6287#6311#0" expanded="true" />
-            <element signature="e#6611#6637#0" expanded="true" />
+            <element signature="e#849#919#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3647,8 +3578,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
           <folding>
-            <element signature="e#1085#1086#0" expanded="true" />
-            <element signature="e#1161#1162#0" expanded="true" />
+            <element signature="e#1085#1086#0" expanded="false" />
+            <element signature="e#1161#1162#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3661,19 +3592,127 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/utils/YoutubeUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/activities/MovieListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/restapi/MovieDataSourceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/data/model/MovieModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="77" column="27" selection-start-line="77" selection-start-column="27" selection-end-line="77" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2008#2009#0" expanded="true" />
+            <element signature="e#2057#2058#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_item_movie.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.451612">
+          <caret line="43" column="80" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_item_trailer.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38566554">
-          <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
+        <state vertical-scroll-proportion="-19.32258">
+          <caret line="51" column="49" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/mvp/presenters/MovieDetailPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="79" selection-start-line="19" selection-start-column="79" selection-end-line="19" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/net/aung/popularmovies/fragments/MovieDetailFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
           <folding>
-            <element signature="e#439#465#0" expanded="true" />
-            <element signature="e#496#521#0" expanded="true" />
-            <element signature="e#1136#1154#0" expanded="true" />
-            <element signature="e#1586#1607#0" expanded="true" />
-            <element signature="e#2028#2049#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_movie_detail.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6005025">
+          <caret line="133" column="16" selection-start-line="133" selection-start-column="16" selection-end-line="133" selection-end-column="16" />
+          <folding>
+            <element signature="e#854#890#0" expanded="true" />
+            <element signature="e#1510#1532#0" expanded="true" />
+            <element signature="e#1997#2022#0" expanded="true" />
+            <element signature="e#2165#2190#0" expanded="true" />
+            <element signature="e#2241#2267#0" expanded="true" />
+            <element signature="e#2322#2346#0" expanded="true" />
+            <element signature="e#2400#2424#0" expanded="true" />
+            <element signature="e#2481#2505#0" expanded="true" />
+            <element signature="e#2889#2910#0" expanded="true" />
+            <element signature="e#3216#3240#0" expanded="true" />
+            <element signature="e#3801#3823#0" expanded="true" />
+            <element signature="e#3877#3898#0" expanded="true" />
+            <element signature="e#4080#4104#0" expanded="true" />
+            <element signature="e#4656#4678#0" expanded="true" />
+            <element signature="e#4729#4751#0" expanded="true" />
+            <element signature="e#5045#5069#0" expanded="true" />
+            <element signature="e#5328#5349#0" expanded="true" />
+            <element signature="e#6371#6393#0" expanded="true" />
+            <element signature="e#6436#6460#0" expanded="true" />
+            <element signature="e#6915#6939#0" expanded="true" />
+            <element signature="e#7031#7055#0" expanded="true" />
+            <element signature="e#7294#7321#0" expanded="true" />
+            <element signature="e#7753#7786#0" expanded="true" />
+            <element signature="e#7827#7853#0" expanded="true" />
+            <element signature="e#7949#7973#0" expanded="true" />
+            <element signature="e#8014#8038#0" expanded="true" />
+            <element signature="e#8080#8104#0" expanded="true" />
           </folding>
         </state>
       </provider>

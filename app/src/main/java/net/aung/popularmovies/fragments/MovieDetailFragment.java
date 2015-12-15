@@ -4,15 +4,15 @@ import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.graphics.Palette;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import net.aung.popularmovies.PopularMoviesApplication;
 import net.aung.popularmovies.R;
@@ -25,7 +25,6 @@ import net.aung.popularmovies.mvp.presenters.MovieDetailPresenter;
 import net.aung.popularmovies.mvp.views.MovieDetailView;
 import net.aung.popularmovies.views.components.recyclerview.TrailerItemDecoration;
 import net.aung.popularmovies.views.pods.ViewPodMoviePopularity;
-import net.aung.popularmovies.views.viewholders.TrailerViewHolder;
 
 import java.util.List;
 
@@ -54,11 +53,14 @@ public class MovieDetailFragment extends BaseFragment
     @Bind(R.id.iv_poster)
     ImageView ivPoster;
 
-    @Bind(R.id.ll_container_trailer)
-    LinearLayout llContainerTrailer;
+    @Bind(R.id.sv_container_trailer)
+    NestedScrollView svContainerTrailer;
 
     @Bind(R.id.rv_trailers)
     RecyclerView rvTrailers;
+
+    @Bind(R.id.tv_tag_line)
+    TextView tvTagLine;
 
     public static MovieDetailFragment newInstance(int movieId) {
         MovieDetailFragment fragment = new MovieDetailFragment();
@@ -159,14 +161,21 @@ public class MovieDetailFragment extends BaseFragment
                     ? lightVibrantSwatch : lightMutedSwatch;
 
             setDarkVibrantColor(colorDarkVaient);
-            //setLightVibrantColor(colorLightVarient);
+            setLightVibrantColor(colorLightVarient);
             //setVibrantColor(vibrantSwatch);
         }
     }
 
     private void setDarkVibrantColor(Palette.Swatch swatch) {
         if(swatch != null){
-            llContainerTrailer.setBackgroundColor(swatch.getRgb());
+            svContainerTrailer.setBackgroundColor(swatch.getRgb());
+            tvTagLine.setTextColor(swatch.getRgb());
+        }
+    }
+
+    private void setLightVibrantColor(Palette.Swatch swatch) {
+        if(swatch != null){
+            tvTagLine.setBackgroundColor(swatch.getRgb());
         }
     }
 }
