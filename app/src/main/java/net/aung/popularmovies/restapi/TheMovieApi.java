@@ -1,6 +1,7 @@
 package net.aung.popularmovies.restapi;
 
 import net.aung.popularmovies.data.responses.MovieDiscoverResponse;
+import net.aung.popularmovies.data.responses.MovieTrailerResponse;
 
 import retrofit.Call;
 import retrofit.http.GET;
@@ -16,5 +17,11 @@ public interface TheMovieApi {
             @Query("api_key") String apiKey,
             @Query("page") int pageNumber,
             @Query("sort_by") String sortBy
+    );
+
+    @GET("movie/{movieId}videos")
+    Call<MovieTrailerResponse> getTrailersByMovieId(
+            @Query("api_key") String apiKey,
+            @Query("movieId") int movieId
     );
 }

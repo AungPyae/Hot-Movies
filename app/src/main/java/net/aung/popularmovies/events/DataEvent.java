@@ -1,6 +1,7 @@
 package net.aung.popularmovies.events;
 
 import net.aung.popularmovies.data.responses.MovieDiscoverResponse;
+import net.aung.popularmovies.data.responses.MovieTrailerResponse;
 import net.aung.popularmovies.data.vos.MovieVO;
 
 import java.util.List;
@@ -67,5 +68,17 @@ public class DataEvent {
 
     public static class LoadedMovieDetailEvent {
 
+    }
+
+    public static class LoadedMovieTrailerEvent {
+        private MovieTrailerResponse response;
+
+        public LoadedMovieTrailerEvent(MovieTrailerResponse response) {
+            this.response = response;
+        }
+
+        public MovieTrailerResponse getResponse() {
+            return response;
+        }
     }
 }

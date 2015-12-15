@@ -5,4 +5,5 @@ package net.aung.popularmovies.restapi;
  */
 public interface MovieDataSource {
     void discoverMovieList(int pageNumber, String sortBy, boolean isForce);
+    void getMovieTrailers(int movieId);
 }

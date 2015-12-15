@@ -2,12 +2,12 @@ package net.aung.popularmovies.restapi;
 
 import net.aung.popularmovies.BuildConfig;
 import net.aung.popularmovies.data.responses.MovieDiscoverResponse;
+import net.aung.popularmovies.data.responses.MovieTrailerResponse;
 import net.aung.popularmovies.events.DataEvent;
 import net.aung.popularmovies.utils.CommonInstances;
 
 import de.greenrobot.event.EventBus;
 import retrofit.Call;
-import retrofit.Callback;
 import retrofit.GsonConverterFactory;
 import retrofit.Response;
 import retrofit.Retrofit;
@@ -45,7 +45,7 @@ public class MovieDataSourceImpl implements MovieDataSource {
                 sortBy
         );
 
-        movieDiscoverResponseCall.enqueue(new Callback<MovieDiscoverResponse>() {
+        movieDiscoverResponseCall.enqueue(new MovieApiCallback<MovieDiscoverResponse>() {
             @Override
             public void onResponse(Response<MovieDiscoverResponse> response, Retrofit retrofit) {
                 MovieDiscoverResponse movieDiscoverResponse = response.body();
@@ -57,11 +57,22 @@ public class MovieDataSourceImpl implements MovieDataSource {
                     EventBus.getDefault().post(event);
                 }
             }
+        });
+    }
 
+    @Override
+    public void getMovieTrailers(int movieId) {
+        Call<MovieTrailerResponse> movieTrailerResponseCall = theMovieApi.getTrailersByMovieId(BuildConfig.THE_MOVIE_API_KEY,
+                movieId);
+
+        movieTrailerResponseCall.enqueue(new MovieApiCallback<MovieTrailerResponse>() {
             @Override
-            public void onFailure(Throwable throwable) {
-                DataEvent.FailedToLoadDataEvent event = new DataEvent.FailedToLoadDataEvent(throwable.getMessage());
-                EventBus.getDefault().post(event);
+            public void onResponse(Response<MovieTrailerResponse> response, Retrofit retrofit) {
+                MovieTrailerResponse movieTrailerResponse = response.body();
+                if (movieTrailerResponse != null) {
+                    DataEvent.LoadedMovieTrailerEvent event = new DataEvent.LoadedMovieTrailerEvent(movieTrailerResponse);
+                    EventBus.getDefault().post(event);
+                }
             }
         });
     }
