@@ -15,7 +15,7 @@
             android:layout_height="match_parent"
             android:columnWidth="@dimen/item_movie_width"
             android:clipToPadding="false"
-            android:layout_margin="5dp"
+            android:padding="@dimen/margin_small"
             />
 
     </android.support.v4.widget.SwipeRefreshLayout>
