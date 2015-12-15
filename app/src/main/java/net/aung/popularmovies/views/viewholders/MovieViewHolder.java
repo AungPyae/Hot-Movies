@@ -1,8 +1,13 @@
 package net.aung.popularmovies.views.viewholders;
 
 import android.databinding.DataBindingUtil;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
+import android.widget.ImageView;
 
+import com.bumptech.glide.load.resource.bitmap.GlideBitmapDrawable;
+
+import net.aung.popularmovies.PopularMoviesApplication;
 import net.aung.popularmovies.R;
 import net.aung.popularmovies.controllers.MovieItemController;
 import net.aung.popularmovies.data.vos.MovieVO;
@@ -23,11 +28,17 @@ public class MovieViewHolder extends BaseViewHolder {
     @Bind(R.id.vp_movie_popularity)
     ViewPodMoviePopularity vpMoviePopularity;
 
+    @Bind(R.id.iv_poster)
+    ImageView ivPoster;
+
     public MovieViewHolder(View itemView, MovieItemController controller) {
         super(itemView);
         ButterKnife.bind(this, itemView);
+
         binding = DataBindingUtil.bind(itemView);
         this.controller = controller;
+
+        ivPoster.setDrawingCacheEnabled(true);
     }
 
     public void bind(MovieVO movie) {
@@ -37,6 +48,9 @@ public class MovieViewHolder extends BaseViewHolder {
 
     @Override
     public void onClick(View view) {
+        GlideBitmapDrawable bitmapDrawable = (GlideBitmapDrawable) ivPoster.getDrawable();
+        PopularMoviesApplication.sPosterCache.put(0, bitmapDrawable.getBitmap());
+
         controller.onNavigateToDetail(binding.getMovie());
     }
 }

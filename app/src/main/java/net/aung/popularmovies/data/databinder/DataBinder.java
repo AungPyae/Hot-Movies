@@ -26,7 +26,6 @@ public final class DataBinder {
         Glide.with(context)
                 .load(imageUrl)
                 .centerCrop()
-                .placeholder(R.drawable.movie_loading_placeholder)
                 .into(iv);
     }
 }
