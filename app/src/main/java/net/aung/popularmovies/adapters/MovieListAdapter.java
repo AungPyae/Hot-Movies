@@ -1,6 +1,7 @@
 package net.aung.popularmovies.adapters;
 
 import android.content.Context;
+import android.graphics.Movie;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import net.aung.popularmovies.R;
+import net.aung.popularmovies.controllers.MovieItemController;
 import net.aung.popularmovies.data.vos.MovieVO;
 import net.aung.popularmovies.views.viewholders.MovieViewHolder;
 
@@ -20,19 +22,17 @@ import java.util.List;
 public class MovieListAdapter extends RecyclerView.Adapter<MovieViewHolder> {
 
     private List<MovieVO> movieList;
+    private MovieItemController controller;
 
-    public static MovieListAdapter newInstance() {
+    public static MovieListAdapter newInstance(MovieItemController controller) {
         List<MovieVO> movieList = new ArrayList<>();
-        return newInstance(movieList);
-    }
-
-    public static MovieListAdapter newInstance(@NonNull List<MovieVO> movieList) {
-        return new MovieListAdapter(movieList);
+        return new MovieListAdapter(movieList, controller);
     }
 
     //Let's make sure movieList is never null. Ref: empty data pattern.
-    private MovieListAdapter(@NonNull List<MovieVO> movieList) {
+    private MovieListAdapter(@NonNull List<MovieVO> movieList, MovieItemController controller) {
         this.movieList = movieList;
+        this.controller = controller;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieViewHolder> {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View viMovie = inflater.inflate(R.layout.view_item_movie, parent, false);
-        return new MovieViewHolder(viMovie);
+        return new MovieViewHolder(viMovie, controller);
     }
 
     @Override

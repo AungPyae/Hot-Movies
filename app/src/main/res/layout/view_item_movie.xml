@@ -14,7 +14,8 @@
 
     <RelativeLayout
         android:layout_width="@dimen/item_movie_width"
-        android:layout_height="@dimen/item_movie_height">
+        android:layout_height="@dimen/item_movie_height"
+        android:foreground="@drawable/selector_action_bg">
 
         <ImageView
             android:id="@+id/iv_poster"

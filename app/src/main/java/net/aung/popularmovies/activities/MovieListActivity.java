@@ -8,11 +8,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import net.aung.popularmovies.R;
+import net.aung.popularmovies.controllers.MovieItemController;
+import net.aung.popularmovies.data.vos.MovieVO;
 import net.aung.popularmovies.fragments.MovieListFragment;
 
-public class MovieListActivity extends AppCompatActivity {
+public class MovieListActivity extends BaseActivity
+        implements MovieItemController {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,5 +63,10 @@ public class MovieListActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onNavigateToDetail(MovieVO movie) {
+        Toast.makeText(getApplicationContext(), "Tap on movie", Toast.LENGTH_SHORT).show();
     }
 }

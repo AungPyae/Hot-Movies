@@ -1,5 +1,6 @@
 package net.aung.popularmovies.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.Snackbar;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 
 import net.aung.popularmovies.R;
 import net.aung.popularmovies.adapters.MovieListAdapter;
+import net.aung.popularmovies.controllers.MovieItemController;
 import net.aung.popularmovies.data.vos.MovieVO;
 import net.aung.popularmovies.mvp.presenters.MovieListPresenter;
 import net.aung.popularmovies.mvp.views.MovieListView;
@@ -28,7 +30,7 @@ import butterknife.ButterKnife;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MovieListFragment extends Fragment
+public class MovieListFragment extends BaseFragment
         implements MovieListView,
         SwipeRefreshLayout.OnRefreshListener,
         SmartScrollListener.ControllerSmartScroll{
@@ -44,6 +46,7 @@ public class MovieListFragment extends Fragment
     private MovieListAdapter movieListAdapter;
     private MovieListPresenter movieListPresenter;
     private SmartScrollListener smartScrollListener;
+    private MovieItemController controller;
 
     public static MovieListFragment newInstance() {
         MovieListFragment fragment = new MovieListFragment();
@@ -55,9 +58,15 @@ public class MovieListFragment extends Fragment
     }
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        controller = (MovieItemController) context;
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        movieListAdapter = MovieListAdapter.newInstance();
+        movieListAdapter = MovieListAdapter.newInstance(controller);
 
         movieListPresenter = new MovieListPresenter(this);
         movieListPresenter.onCreate();
