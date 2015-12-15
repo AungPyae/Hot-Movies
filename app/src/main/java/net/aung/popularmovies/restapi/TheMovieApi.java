@@ -5,6 +5,7 @@ import net.aung.popularmovies.data.responses.MovieTrailerResponse;
 
 import retrofit.Call;
 import retrofit.http.GET;
+import retrofit.http.Path;
 import retrofit.http.Query;
 
 /**
@@ -19,9 +20,9 @@ public interface TheMovieApi {
             @Query("sort_by") String sortBy
     );
 
-    @GET("movie/{movieId}videos")
+    @GET("movie/{movieId}/videos")
     Call<MovieTrailerResponse> getTrailersByMovieId(
-            @Query("api_key") String apiKey,
-            @Query("movieId") int movieId
+            @Path("movieId") int movieId,
+            @Query("api_key") String apiKey
     );
 }

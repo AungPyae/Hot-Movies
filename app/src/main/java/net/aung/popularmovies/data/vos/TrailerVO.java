@@ -7,6 +7,8 @@ import com.google.gson.annotations.SerializedName;
  */
 public class TrailerVO {
 
+    private static final String YOUTUBE_IMAGE_PREVIEW_PATH_FORMAT = "http://img.youtube.com/vi/%s/0.jpg";
+
     @SerializedName("id")
     private String id;
 
@@ -54,5 +56,9 @@ public class TrailerVO {
 
     public String getType() {
         return type;
+    }
+
+    public String getTrailerPath() {
+        return String.format(YOUTUBE_IMAGE_PREVIEW_PATH_FORMAT, key);
     }
 }

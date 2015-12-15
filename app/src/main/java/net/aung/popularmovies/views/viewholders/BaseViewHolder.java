@@ -6,10 +6,12 @@ import android.view.View;
 /**
  * Created by aung on 12/15/15.
  */
-public abstract class BaseViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public abstract class BaseViewHolder<T> extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public BaseViewHolder(View itemView) {
         super(itemView);
         itemView.setOnClickListener(this);
     }
+
+    public abstract void bind(T data);
 }

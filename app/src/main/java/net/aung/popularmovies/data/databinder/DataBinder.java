@@ -7,6 +7,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
+import net.aung.popularmovies.PopularMoviesApplication;
 import net.aung.popularmovies.R;
 
 import java.util.Random;

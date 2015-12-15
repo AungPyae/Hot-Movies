@@ -11,31 +11,6 @@ import java.util.List;
  */
 public class DataEvent {
 
-    public static class MovieListLoadedEvent {
-
-        private List<MovieVO> movieList;
-        private int loadedPageNumber;
-        private boolean isForce;
-
-        public MovieListLoadedEvent(List<MovieVO> movieList, int loadedPageNumber, boolean isForce) {
-            this.movieList = movieList;
-            this.loadedPageNumber = loadedPageNumber;
-            this.isForce = isForce;
-        }
-
-        public List<MovieVO> getMovieList() {
-            return movieList;
-        }
-
-        public int getLoadedPageNumber() {
-            return loadedPageNumber;
-        }
-
-        public boolean isForce() {
-            return isForce;
-        }
-    }
-
     public static class LoadedMovieDiscoverEvent {
         private MovieDiscoverResponse response;
         private boolean isForce;
@@ -72,13 +47,19 @@ public class DataEvent {
 
     public static class LoadedMovieTrailerEvent {
         private MovieTrailerResponse response;
+        private int movieId;
 
-        public LoadedMovieTrailerEvent(MovieTrailerResponse response) {
+        public LoadedMovieTrailerEvent(MovieTrailerResponse response, int movieId) {
             this.response = response;
+            this.movieId = movieId;
         }
 
         public MovieTrailerResponse getResponse() {
             return response;
+        }
+
+        public int getMovieId() {
+            return movieId;
         }
     }
 }

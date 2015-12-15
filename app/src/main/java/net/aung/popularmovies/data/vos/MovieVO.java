@@ -2,6 +2,8 @@ package net.aung.popularmovies.data.vos;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 /**
  * Immutable.
  * Created by aung on 12/12/15.
@@ -53,6 +55,8 @@ public class MovieVO {
 
     @SerializedName("vote_average")
     private float voteAverage;
+
+    private List<TrailerVO> trailerList;
 
     public int getId() {
         return id;
@@ -108,5 +112,13 @@ public class MovieVO {
 
     public String getVoteAverage() {
         return String.format("%.1f", voteAverage);
+    }
+
+    public List<TrailerVO> getTrailerList() {
+        return trailerList;
+    }
+
+    public void setTrailerList(List<TrailerVO> trailerList) {
+        this.trailerList = trailerList;
     }
 }

@@ -26,6 +26,12 @@ public class MovieDetailPresenter extends BasePresenter {
         if (movie != null) {
             movieDetailView.displayMovieDetail(movie);
         }
+
+        movieModel.loadTrailerListByMovieId(movieId);
+    }
+
+    public void onEventMainThread(DataEvent.LoadedMovieTrailerEvent event) {
+        movieDetailView.displayTrailerList(event.getResponse().getTrailerList());
     }
 
     @Override

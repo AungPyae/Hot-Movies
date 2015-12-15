@@ -124,75 +124,26 @@
 
         </FrameLayout>
 
-        <HorizontalScrollView
-            android:id="@+id/hsv_container_trailer"
+        <LinearLayout
+            android:id="@+id/ll_container_trailer"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:background="@color/primary_dark">
+            android:background="@color/primary_dark"
+            android:paddingTop="@dimen/margin_medium_2"
+            android:paddingLeft="@dimen/margin_medium_2"
+            android:paddingRight="@dimen/margin_medium_2">
 
-            <LinearLayout
-                android:id="@+id/ll_container_trailer"
-                android:layout_width="wrap_content"
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_trailers"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:columnWidth="@dimen/item_movie_height"
+                android:clipToPadding="false"
+                />
 
-                <FrameLayout
-                    android:layout_width="@dimen/item_movie_height"
-                    android:layout_height="@dimen/item_movie_width"
-                    android:padding="@dimen/margin_medium"
-                    >
-
-                    <ImageView
-                        android:id="@+id/iv_trailer_preview"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#6600ddff"
-                        android:scaleType="centerCrop"
-                        tools:src="@drawable/trailer_01"
-                        />
-
-                    <ImageView
-                        android:id="@+id/iv_trailer_play"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@android:color/transparent"
-                        android:contentDescription="@string/app_name"
-                        android:src="@drawable/icon_trailer_play"/>
-
-                </FrameLayout>
-
-                <FrameLayout
-                    android:layout_width="@dimen/item_movie_height"
-                    android:layout_height="@dimen/item_movie_width"
-                    android:padding="@dimen/margin_medium"
-                    >
-
-                    <ImageView
-                        android:id="@+id/iv_trailer_preview"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#6600ddff"
-                        android:scaleType="centerCrop"
-                        tools:src="@drawable/trailer_02"
-                        />
-
-                    <ImageView
-                        android:id="@+id/iv_trailer_play"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@android:color/transparent"
-                        android:contentDescription="@string/app_name"
-                        android:src="@drawable/icon_trailer_play"/>
-
-                </FrameLayout>
-
-            </LinearLayout>
-
-        </HorizontalScrollView>
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -13,12 +13,15 @@ import android.widget.Toast;
 
 import net.aung.popularmovies.R;
 import net.aung.popularmovies.controllers.MovieItemController;
+import net.aung.popularmovies.controllers.TrailerItemController;
 import net.aung.popularmovies.data.vos.MovieVO;
+import net.aung.popularmovies.data.vos.TrailerVO;
 import net.aung.popularmovies.fragments.MovieDetailFragment;
 import net.aung.popularmovies.fragments.MovieListFragment;
 
 public class MovieListActivity extends BaseActivity
-        implements MovieItemController {
+        implements MovieItemController,
+        TrailerItemController{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,5 +77,10 @@ public class MovieListActivity extends BaseActivity
                 .replace(R.id.fl_container, MovieDetailFragment.newInstance(movie.getId()))
                 .addToBackStack(null)
                 .commit();
+    }
+
+    @Override
+    public void onShowTrailer(TrailerVO trailer) {
+
     }
 }

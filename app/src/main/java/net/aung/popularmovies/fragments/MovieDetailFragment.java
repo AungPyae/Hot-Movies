@@ -1,9 +1,13 @@
 package net.aung.popularmovies.fragments;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.graphics.Palette;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +16,18 @@ import android.widget.LinearLayout;
 
 import net.aung.popularmovies.PopularMoviesApplication;
 import net.aung.popularmovies.R;
+import net.aung.popularmovies.adapters.TrailerListAdapter;
+import net.aung.popularmovies.controllers.TrailerItemController;
 import net.aung.popularmovies.data.vos.MovieVO;
+import net.aung.popularmovies.data.vos.TrailerVO;
 import net.aung.popularmovies.databinding.FragmentMovieDetailBinding;
 import net.aung.popularmovies.mvp.presenters.MovieDetailPresenter;
 import net.aung.popularmovies.mvp.views.MovieDetailView;
+import net.aung.popularmovies.views.components.recyclerview.TrailerItemDecoration;
 import net.aung.popularmovies.views.pods.ViewPodMoviePopularity;
+import net.aung.popularmovies.views.viewholders.TrailerViewHolder;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -34,6 +45,8 @@ public class MovieDetailFragment extends BaseFragment
     private FragmentMovieDetailBinding binding;
     private MovieDetailPresenter presenter;
     private Bitmap poster;
+    private TrailerListAdapter trailerAdapter;
+    private TrailerItemController controller;
 
     @Bind(R.id.vp_movie_popularity)
     ViewPodMoviePopularity vpMoviePopularity;
@@ -44,12 +57,21 @@ public class MovieDetailFragment extends BaseFragment
     @Bind(R.id.ll_container_trailer)
     LinearLayout llContainerTrailer;
 
+    @Bind(R.id.rv_trailers)
+    RecyclerView rvTrailers;
+
     public static MovieDetailFragment newInstance(int movieId) {
         MovieDetailFragment fragment = new MovieDetailFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_MOVIE_ID, movieId);
         fragment.setArguments(bundle);
         return fragment;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        controller = (TrailerItemController) context;
     }
 
     @Override
@@ -60,6 +82,8 @@ public class MovieDetailFragment extends BaseFragment
 
         poster = PopularMoviesApplication.sPosterCache.get(0);
         Palette.from(poster).generate(this);
+
+        trailerAdapter = TrailerListAdapter.newInstance(controller);
     }
 
     @Override
@@ -75,6 +99,14 @@ public class MovieDetailFragment extends BaseFragment
         binding = DataBindingUtil.bind(rootView);
 
         ivPoster.setImageBitmap(poster);
+
+        rvTrailers.setHasFixedSize(true);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        rvTrailers.setLayoutManager(layoutManager);
+        rvTrailers.addItemDecoration(new TrailerItemDecoration(getContext()));
+
+        rvTrailers.setAdapter(trailerAdapter);
 
         return rootView;
     }
@@ -101,6 +133,11 @@ public class MovieDetailFragment extends BaseFragment
     public void displayMovieDetail(MovieVO movie) {
         binding.setMovie(movie);
         vpMoviePopularity.drawPopularityIcons(movie.getPopularity());
+    }
+
+    @Override
+    public void displayTrailerList(List<TrailerVO> trailerList) {
+        trailerAdapter.setTrailerList(trailerList);
     }
 
     @Override

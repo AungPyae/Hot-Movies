@@ -7,6 +7,7 @@ import android.util.Log;
 import net.aung.popularmovies.PopularMoviesApplication;
 import net.aung.popularmovies.data.responses.MovieDiscoverResponse;
 import net.aung.popularmovies.data.vos.MovieVO;
+import net.aung.popularmovies.data.vos.TrailerVO;
 import net.aung.popularmovies.events.DataEvent;
 import net.aung.popularmovies.restapi.MovieDataSource;
 import net.aung.popularmovies.restapi.MovieDataSourceImpl;
@@ -18,6 +19,7 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import de.greenrobot.event.EventBus;
 
@@ -64,6 +66,16 @@ public class MovieModel {
         return movieArrayMap.get(movieId);
     }
 
+    public void loadTrailerListByMovieId(int movieId) {
+        Log.d(PopularMoviesApplication.TAG, "loading trailer list for movieId " + movieId);
+        MovieVO movie = movieArrayMap.get(movieId);
+        List<TrailerVO> trailerList = movie.getTrailerList();
+
+        if (trailerList == null) {
+            movieDataSource.getMovieTrailers(movieId);
+        }
+    }
+
     public void onEventMainThread(DataEvent.LoadedMovieDiscoverEvent event) {
         boolean isForce = event.isForce();
         MovieDiscoverResponse response = event.getResponse();
@@ -75,8 +87,11 @@ public class MovieModel {
         }
         storeInArrayMap(loadedMovieList);
 
-        DataEvent.MovieListLoadedEvent movieListLoadedEvent = new DataEvent.MovieListLoadedEvent(loadedMovieList, currentPageNumber, event.isForce());
-        EventBus.getDefault().post(movieListLoadedEvent);
+    }
+
+    public void onEventMainThread(DataEvent.LoadedMovieTrailerEvent event) {
+        MovieVO movie = movieArrayMap.get(event.getMovieId());
+        movie.setTrailerList(event.getResponse().getTrailerList());
     }
 
     private void storeInArrayMap(ArrayList<MovieVO> loadedMovieList) {
@@ -115,7 +130,7 @@ public class MovieModel {
             super.onPostExecute(response);
             storeInArrayMap(response.getResults());
 
-            DataEvent.MovieListLoadedEvent event = new DataEvent.MovieListLoadedEvent(new ArrayList<>(movieArrayMap.values()), pageNumber, isForce);
+            DataEvent.LoadedMovieDiscoverEvent event = new DataEvent.LoadedMovieDiscoverEvent(response, isForce);
             EventBus.getDefault().post(event);
         }
     }

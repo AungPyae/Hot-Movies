@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
 /**
  * Created by aung on 12/12/15.
  */
-public class MovieViewHolder extends BaseViewHolder {
+public class MovieViewHolder extends BaseViewHolder<MovieVO> {
 
     private ViewItemMovieBinding binding;
     private MovieItemController controller;
@@ -41,6 +41,7 @@ public class MovieViewHolder extends BaseViewHolder {
         ivPoster.setDrawingCacheEnabled(true);
     }
 
+    @Override
     public void bind(MovieVO movie) {
         binding.setMovie(movie);
         vpMoviePopularity.drawPopularityIcons(movie.getPopularity());
