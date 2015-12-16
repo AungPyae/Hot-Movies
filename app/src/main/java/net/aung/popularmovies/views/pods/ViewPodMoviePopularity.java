@@ -44,6 +44,11 @@ public class ViewPodMoviePopularity extends LinearLayout {
     public void drawPopularityIcons(float popularity) {
         hideAllViews();
         int popularityCount = (int) (popularity / 10);
+        if(popularityCount > 0) {
+            setVisibility(View.VISIBLE);
+        } else {
+            setVisibility(View.GONE);
+        }
         for (int i = 0; i < popularityCount; i++) {
             View view = getChildAt(i);
             if (view != null) {

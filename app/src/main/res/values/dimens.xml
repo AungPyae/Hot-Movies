@@ -44,4 +44,10 @@
     <dimen name="detail_padding_bottom_navigation">40dp</dimen>
 
     <dimen name="elevation_card">2dp</dimen>
+
+    <dimen name="width_left_menu">300dp</dimen>
+    <dimen name="user_info_height">200dp</dimen>
+    <dimen name="button_border_stroke">1dp</dimen>
+
+    <dimen name="profile_dimen">100dp</dimen>
 </resources>

@@ -89,7 +89,7 @@
                             android:layout_marginTop="@dimen/margin_large"
                             android:fontFamily="sans-serif-condensed"
                             android:textColor="@color/text_white"
-                            android:textSize="@dimen/text_heading_1x"
+                            android:textSize="@dimen/text_regular_3x"
                             android:text="@{movie.tagline}"
                             tools:text="Ant-Man" />
 
@@ -134,6 +134,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
+                        android:visibility="gone"
                         />
 
                     <LinearLayout

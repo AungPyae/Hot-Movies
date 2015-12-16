@@ -32,6 +32,9 @@ public class ViewPodMoviePopularityDetail extends LinearLayout {
 
     public void drawPopularityIcons(float popularity) {
         int popularityCount = (int) (popularity / 10);
+        if(popularityCount > 0) {
+            setVisibility(View.VISIBLE);
+        }
         for (int i = 0; i < popularityCount; i++) {
             ImageView iv = new ImageView(getContext());
             iv.setImageResource(R.drawable.movie_popularity_icon);
