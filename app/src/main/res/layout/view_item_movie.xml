@@ -98,7 +98,7 @@
                     android:textSize="@dimen/text_small"
                     android:fontFamily="sans-serif-light"
                     android:maxLines="2"
-                    android:text="3 Likes 7 Comments"
+                    android:text="3 Likes 7 Shares"
                     />
 
                 <LinearLayout
@@ -151,18 +151,18 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/ic_comment_white_18dp"
+                            android:src="@drawable/ic_save_white_18dp"
                             android:layout_gravity="center_vertical"
                             />
 
                         <TextView
-                            android:id="@+id/lbl_comment"
+                            android:id="@+id/lbl_save"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
                             android:textColor="@color/text_white"
                             android:textSize="@dimen/text_small"
-                            android:text="@string/lbl_comment"
+                            android:text="@string/lbl_save"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/margin_medium"
                             tools:text="Comment" />
@@ -180,18 +180,18 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/ic_save_white_18dp"
+                            android:src="@drawable/ic_share_white_18dp"
                             android:layout_gravity="center_vertical"
                             />
 
                         <TextView
-                            android:id="@+id/lbl_save"
+                            android:id="@+id/lbl_share"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
                             android:textColor="@color/text_white"
                             android:textSize="@dimen/text_small"
-                            android:text="@string/lbl_save"
+                            android:text="@string/lbl_share"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/margin_medium"
                             tools:text="Save" />
