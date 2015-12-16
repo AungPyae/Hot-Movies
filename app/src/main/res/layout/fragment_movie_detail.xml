@@ -210,7 +210,7 @@
                         android:layout_height="wrap_content"
                         >
 
-                        <net.aung.popularmovies.views.pods.ViewPodGenreList
+                        <net.aung.popularmovies.views.pods.ViewPodGenreListDetail
                             android:id="@+id/vp_container_genre"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

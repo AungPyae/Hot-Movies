@@ -36,9 +36,9 @@ public class MovieListPresenter extends BasePresenter {
 
     }
 
-    public void onEventMainThread(DataEvent.LoadedMovieDiscoverEvent event) {
-        currentPageNumber = event.getResponse().getPage() + 1;
-        movieListView.displayMovieList(event.getResponse().getResults(), !event.isForce());
+    public void onEventMainThread(DataEvent.ShowMovieListEvent event) {
+        currentPageNumber = event.getPageNumber() + 1;
+        movieListView.displayMovieList(event.getMovieList(), !event.isForce());
     }
 
     public void onEventMainThread(DataEvent.FailedToLoadDataEvent event) {

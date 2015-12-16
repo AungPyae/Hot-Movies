@@ -5,7 +5,8 @@ import android.support.v4.util.ArrayMap;
 import android.util.Log;
 
 import net.aung.popularmovies.PopularMoviesApplication;
-import net.aung.popularmovies.data.responses.MovieDiscoverResponse;
+import net.aung.popularmovies.restapi.responses.MovieDiscoverResponse;
+import net.aung.popularmovies.data.vos.GenreVO;
 import net.aung.popularmovies.data.vos.MovieVO;
 import net.aung.popularmovies.data.vos.TrailerVO;
 import net.aung.popularmovies.events.DataEvent;
@@ -35,6 +36,7 @@ public class MovieModel {
     private static MovieModel objInstance = getInstance(); //active initiating.
 
     private ArrayMap<Integer, MovieVO> movieArrayMap;
+    private ArrayMap<Integer, GenreVO> genreArrayMap;
     private MovieDataSource movieDataSource;
 
     public static MovieModel getInstance() {
@@ -47,6 +49,7 @@ public class MovieModel {
 
     private MovieModel() {
         movieArrayMap = new ArrayMap<>();
+        genreArrayMap = new ArrayMap<>();
         movieDataSource = MovieDataSourceImpl.getInstance();
 
         EventBus eventBus = EventBus.getDefault();
@@ -54,6 +57,7 @@ public class MovieModel {
             eventBus.register(this);
         }
 
+        movieDataSource.getGenreList();
     }
 
     //Async
@@ -93,8 +97,10 @@ public class MovieModel {
         if (isForce) {
             movieArrayMap.clear();
         }
-        storeInArrayMap(loadedMovieList);
+        storeMoviesInArrayMap(loadedMovieList);
 
+        DataEvent.ShowMovieListEvent showDataEvent = new DataEvent.ShowMovieListEvent(loadedMovieList, event.isForce(), event.getResponse().getPage());
+        EventBus.getDefault().post(showDataEvent);
     }
 
     public void onEventMainThread(DataEvent.LoadedMovieTrailerEvent event) {
@@ -108,8 +114,24 @@ public class MovieModel {
         movieArrayMap.put(event.getMovieId(), movieWithDetail);
     }
 
-    private void storeInArrayMap(ArrayList<MovieVO> loadedMovieList) {
+    public void onEventMainThread(DataEvent.LoadedGenreListEvent event) {
+        storeGenreInArrayMap(event.getResponse().getGenreList());
+    }
+
+    private void storeGenreInArrayMap(ArrayList<GenreVO> genreList) {
+        for (GenreVO genre : genreList) {
+            genreArrayMap.put(genre.getId(), genre);
+        }
+    }
+
+    private void storeMoviesInArrayMap(ArrayList<MovieVO> loadedMovieList) {
         for (MovieVO movie : loadedMovieList) {
+            int [] genreIds = movie.getGenreIds();
+            ArrayList<GenreVO> genreList = new ArrayList<>(genreIds.length);
+            for(int genreId:genreIds) {
+                genreList.add(genreArrayMap.get(genreId));
+            }
+            movie.setGenreList(genreList);
             movieArrayMap.put(movie.getId(), movie);
         }
     }
@@ -142,7 +164,7 @@ public class MovieModel {
         @Override
         protected void onPostExecute(MovieDiscoverResponse response) {
             super.onPostExecute(response);
-            storeInArrayMap(response.getResults());
+            storeMoviesInArrayMap(response.getResults());
 
             DataEvent.LoadedMovieDiscoverEvent event = new DataEvent.LoadedMovieDiscoverEvent(response, isForce);
             EventBus.getDefault().post(event);

@@ -19,13 +19,8 @@
 
     <style name="MovieTitle">
         <item name="android:background">@color/black_transparent_overlay</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:maxLines">2</item>
         <item name="android:minHeight">@dimen/movie_title_min_height</item>
         <item name="android:padding">@dimen/margin_medium</item>
-        <item name="android:textColor">@color/text_white</item>
-        <item name="android:textSize">@dimen/text_regular_2x</item>
-        <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
 
     <style name="MoviePopularity">

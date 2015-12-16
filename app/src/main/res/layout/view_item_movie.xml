@@ -11,47 +11,209 @@
             type="net.aung.popularmovies.data.vos.MovieVO" />
     </data>
 
-    <RelativeLayout
-        android:layout_width="@dimen/item_movie_width"
-        android:layout_height="@dimen/item_movie_height"
-        android:foreground="@drawable/selector_action_bg">
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardElevation="@dimen/elevation_card"
+        card_view:cardUseCompatPadding="true">
 
-        <ImageView
-            android:id="@+id/iv_poster"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:imageUrl="@{movie.posterPath}"
-            tools:src="@drawable/movie_poster" />
-
-        <net.aung.popularmovies.views.pods.ViewPodMoviePopularity
-            android:id="@+id/vp_movie_popularity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingRight="@dimen/margin_medium"
-            android:paddingTop="@dimen/margin_medium"
-            />
-
-        <TextView
-            android:id="@+id/tv_title"
-            style="@style/MovieTitle"
+        <RelativeLayout
+            android:id="@+id/rl_root_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:text="@{movie.title}"
-            tools:text="Terminator Genisys" />
+            android:foreground="@drawable/selector_action_bg"
+            android:background="@color/primary"
+            >
 
-        <net.aung.popularmovies.views.components.textview.LobsterRegularTextView
-            android:id="@+id/tv_rating"
-            style="@style/MoviePopularity"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_alignParentRight="true"
-            android:layout_above="@id/tv_title"
-            android:layout_margin="@dimen/margin_small"
-            android:text="@{movie.voteAverage}"
-            tools:text="6.2" />
+            <ImageView
+                android:id="@+id/iv_poster"
+                android:layout_width="@dimen/item_movie_width"
+                android:layout_height="@dimen/item_movie_height"
+                tools:src="@drawable/movie_poster"
+                android:padding="@dimen/margin_medium"
+                />
 
-    </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/ll_container_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingRight="@dimen/margin_medium"
+                android:layout_toRightOf="@id/iv_poster"
+                android:layout_alignTop="@id/iv_poster"
+                android:layout_marginTop="@dimen/margin_medium">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{movie.title}"
+                    android:textColor="@color/text_white"
+                    android:textSize="@dimen/text_regular_2x"
+                    android:fontFamily="sans-serif-condensed"
+                    android:maxLines="2"
+                    tools:text="Terminator Genisys" />
+
+                <net.aung.popularmovies.views.pods.ViewPodMoviePopularity
+                    android:id="@+id/vp_movie_popularity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:orientation="horizontal"
+                    android:layout_below="@id/tv_title"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_genre_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/text_white"
+                    android:textSize="@dimen/text_small"
+                    android:layout_below="@id/vp_movie_popularity"
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:lineSpacingExtra="1.2dp"
+                    />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/margin_small"
+                >
+
+                <TextView
+                    android:id="@+id/tv_user_action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin_medium"
+                    android:layout_gravity="right"
+                    android:textColor="@color/text_white"
+                    android:textSize="@dimen/text_small"
+                    android:fontFamily="sans-serif-light"
+                    android:maxLines="2"
+                    android:text="3 Likes 7 Comments"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/rl_container_user_action"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/black_transparent_overlay"
+                    android:weightSum="3"
+                    android:layout_marginTop="@dimen/margin_medium">
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:padding="@dimen/margin_medium">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_thumb_up_white_18dp"
+                            android:layout_gravity="center_vertical"
+                            />
+
+                        <TextView
+                            android:id="@+id/lbl_like"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_small"
+                            android:text="@string/lbl_like"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/margin_medium"
+                            tools:text="Like" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:padding="@dimen/margin_medium">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_comment_white_18dp"
+                            android:layout_gravity="center_vertical"
+                            />
+
+                        <TextView
+                            android:id="@+id/lbl_comment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_small"
+                            android:text="@string/lbl_comment"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/margin_medium"
+                            tools:text="Comment" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:padding="@dimen/margin_medium">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_save_white_18dp"
+                            android:layout_gravity="center_vertical"
+                            />
+
+                        <TextView
+                            android:id="@+id/lbl_save"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_small"
+                            android:text="@string/lbl_save"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/margin_medium"
+                            tools:text="Save" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <net.aung.popularmovies.views.components.textview.LobsterRegularTextView
+                android:id="@+id/tv_rating"
+                style="@style/MoviePopularity"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="@dimen/margin_small"
+                android:text="@{movie.voteAverage}"
+                android:textColor="@color/primary_text"
+                tools:text="6.2" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
 
 </layout>

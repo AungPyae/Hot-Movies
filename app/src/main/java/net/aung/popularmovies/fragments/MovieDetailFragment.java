@@ -24,7 +24,7 @@ import net.aung.popularmovies.databinding.FragmentMovieDetailBinding;
 import net.aung.popularmovies.mvp.presenters.MovieDetailPresenter;
 import net.aung.popularmovies.mvp.views.MovieDetailView;
 import net.aung.popularmovies.views.components.recyclerview.TrailerItemDecoration;
-import net.aung.popularmovies.views.pods.ViewPodGenreList;
+import net.aung.popularmovies.views.pods.ViewPodGenreListDetail;
 import net.aung.popularmovies.views.pods.ViewPodMoviePopularityDetail;
 
 import java.util.List;
@@ -64,7 +64,7 @@ public class MovieDetailFragment extends BaseFragment
     TextView tvTitle;
 
     @Bind(R.id.vp_container_genre)
-    ViewPodGenreList vpContainerGenre;
+    ViewPodGenreListDetail vpContainerGenre;
 
     public static MovieDetailFragment newInstance(int movieId) {
         MovieDetailFragment fragment = new MovieDetailFragment();

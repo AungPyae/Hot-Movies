@@ -185,6 +185,10 @@ public class MovieVO {
         return budget;
     }
 
+    public void setGenreList(ArrayList<GenreVO> genreList) {
+        this.genreList = genreList;
+    }
+
     public ArrayList<GenreVO> getGenreList() {
         return genreList;
     }

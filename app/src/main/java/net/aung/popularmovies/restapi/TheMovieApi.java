@@ -1,7 +1,8 @@
 package net.aung.popularmovies.restapi;
 
-import net.aung.popularmovies.data.responses.MovieDiscoverResponse;
-import net.aung.popularmovies.data.responses.MovieTrailerResponse;
+import net.aung.popularmovies.restapi.responses.GenreListResponse;
+import net.aung.popularmovies.restapi.responses.MovieDiscoverResponse;
+import net.aung.popularmovies.restapi.responses.MovieTrailerResponse;
 import net.aung.popularmovies.data.vos.MovieVO;
 
 import retrofit.Call;
@@ -30,6 +31,11 @@ public interface TheMovieApi {
     @GET("movie/{movieId}")
     Call<MovieVO> getMovieDetailByMovieId(
             @Path("movieId") int movieId,
+            @Query("api_key") String apiKey
+    );
+
+    @GET("genre/movie/list")
+    Call<GenreListResponse> getGenreList(
             @Query("api_key") String apiKey
     );
 }

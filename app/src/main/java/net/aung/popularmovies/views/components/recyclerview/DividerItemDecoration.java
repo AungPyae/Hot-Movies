@@ -6,6 +6,8 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 
+import net.aung.popularmovies.R;
+
 /**
  * Created by aung on 12/12/15.
  */
@@ -25,6 +27,6 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
     @Override
     public void getItemOffsets(Rect outRect, int itemPosition, RecyclerView parent) {
-        outRect.set(0, 0, mDivider.getIntrinsicHeight(), mDivider.getIntrinsicHeight());
+        outRect.set(0, 0, 0, mDivider.getIntrinsicHeight());
     }
 }

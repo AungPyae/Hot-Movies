@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import net.aung.popularmovies.R;
 import net.aung.popularmovies.data.vos.GenreVO;
 import net.aung.popularmovies.views.components.textview.SmallDashUnderlineTextView;
 
@@ -28,22 +27,22 @@ public class ViewPodGenreList extends LinearLayout {
         super(context, attrs, defStyleAttr);
     }
 
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+    }
+
     public void setGenreList(List<GenreVO> genreList) {
-        if (genreList == null)
+        if (genreList == null || genreList.size() == 0)
             return;
 
         if (getChildCount() == 0) {
             for (int position = 0; position < genreList.size(); position++) {
                 TextView tv = new SmallDashUnderlineTextView(getContext());
-                tv.setText(genreList.get(position).getName());
-                addView(tv);
-
-                if (position < genreList.size() - 1) {
-                    TextView tvSeparator = new TextView(getContext());
-                    tvSeparator.setTextSize(14);
-                    tvSeparator.setTextColor(getContext().getResources().getColor(android.R.color.white));
-                    tvSeparator.setText(" | ");
-                    addView(tvSeparator);
+                GenreVO genre = genreList.get(position);
+                if(genre != null) {
+                    tv.setText(genre.getName());
+                    addView(tv);
                 }
             }
         }

@@ -2,7 +2,6 @@ package net.aung.popularmovies.views.pods;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -34,7 +33,9 @@ public class ViewPodMoviePopularity extends LinearLayout {
         for (int i = 0; i < MAX_POPULARITY_COUNT; i++) {
             ImageView iv = new ImageView(getContext());
             iv.setImageResource(R.drawable.movie_popularity_icon);
-            iv.setPadding((int) getContext().getResources().getDimension(R.dimen.margin_small), 0, 0, 0);
+            if (i != 0) {
+                iv.setPadding((int) getContext().getResources().getDimension(R.dimen.margin_small), 0, 0, 0);
+            }
             iv.setVisibility(View.INVISIBLE);
             addView(iv);
         }
@@ -42,7 +43,6 @@ public class ViewPodMoviePopularity extends LinearLayout {
 
     public void drawPopularityIcons(float popularity) {
         hideAllViews();
-
         int popularityCount = (int) (popularity / 10);
         for (int i = 0; i < popularityCount; i++) {
             View view = getChildAt(i);

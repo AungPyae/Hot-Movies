@@ -1,10 +1,11 @@
 package net.aung.popularmovies.events;
 
-import net.aung.popularmovies.data.responses.MovieDiscoverResponse;
-import net.aung.popularmovies.data.responses.MovieTrailerResponse;
+import net.aung.popularmovies.restapi.responses.GenreListResponse;
+import net.aung.popularmovies.restapi.responses.MovieDiscoverResponse;
+import net.aung.popularmovies.restapi.responses.MovieTrailerResponse;
 import net.aung.popularmovies.data.vos.MovieVO;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by aung on 12/12/15.
@@ -26,6 +27,30 @@ public class DataEvent {
 
         public boolean isForce() {
             return isForce;
+        }
+    }
+
+    public static class ShowMovieListEvent {
+        private ArrayList<MovieVO> movieList;
+        private boolean isForce;
+        private int pageNumber;
+
+        public ShowMovieListEvent(ArrayList<MovieVO> movieList, boolean isForce, int pageNumber) {
+            this.movieList = movieList;
+            this.isForce = isForce;
+            this.pageNumber = pageNumber;
+        }
+
+        public ArrayList<MovieVO> getMovieList() {
+            return movieList;
+        }
+
+        public boolean isForce() {
+            return isForce;
+        }
+
+        public int getPageNumber() {
+            return pageNumber;
         }
     }
 
@@ -74,6 +99,18 @@ public class DataEvent {
 
         public int getMovieId() {
             return movieId;
+        }
+    }
+
+    public static class LoadedGenreListEvent {
+        private GenreListResponse response;
+
+        public LoadedGenreListEvent(GenreListResponse response) {
+            this.response = response;
+        }
+
+        public GenreListResponse getResponse() {
+            return response;
         }
     }
 }
