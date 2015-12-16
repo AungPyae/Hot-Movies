@@ -41,6 +41,10 @@ public class MovieListPresenter extends BasePresenter {
         movieListView.displayMovieList(event.getResponse().getResults(), !event.isForce());
     }
 
+    public void onEventMainThread(DataEvent.FailedToLoadDataEvent event) {
+        movieListView.displayFailToLoadData(event.getMessage());
+    }
+
     private void loadNewMovieList() {
        MovieModel.getInstance().loadMovieListByPage(currentPageNumber, false);
     }

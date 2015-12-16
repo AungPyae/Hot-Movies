@@ -63,15 +63,21 @@ public class MovieModel {
     }
 
     public MovieVO loadMovieDetailByMovieId(int movieId) {
-        return movieArrayMap.get(movieId);
+        MovieVO movie = movieArrayMap.get(movieId);
+        if(!movie.isDetailLoaded()){
+            Log.d(PopularMoviesApplication.TAG, "loadMovieDetailByMovieId " + movieId);
+            movieDataSource.getMovieDetail(movieId);
+        }
+
+        return movie;
     }
 
     public List<TrailerVO> loadTrailerListByMovieId(int movieId) {
-        Log.d(PopularMoviesApplication.TAG, "loading trailer list for movieId " + movieId);
         MovieVO movie = movieArrayMap.get(movieId);
         List<TrailerVO> trailerList = movie.getTrailerList();
 
         if (trailerList == null) {
+            Log.d(PopularMoviesApplication.TAG, "loading trailer list for movieId " + movieId);
             movieDataSource.getMovieTrailers(movieId);
         }
 
@@ -94,6 +100,12 @@ public class MovieModel {
     public void onEventMainThread(DataEvent.LoadedMovieTrailerEvent event) {
         MovieVO movie = movieArrayMap.get(event.getMovieId());
         movie.setTrailerList(event.getResponse().getTrailerList());
+    }
+
+    public void onEventMainThread(DataEvent.LoadedMovieDetailEvent event) {
+        MovieVO movieWithDetail = event.getMovie();
+        movieWithDetail.setIsDetailLoaded(true);
+        movieArrayMap.put(event.getMovieId(), movieWithDetail);
     }
 
     private void storeInArrayMap(ArrayList<MovieVO> loadedMovieList) {

@@ -147,6 +147,12 @@ public class MovieListFragment extends BaseFragment
         }
     }
 
+    @Override
+    public void displayFailToLoadData(String message) {
+        Snackbar.make(rootView, message, Snackbar.LENGTH_INDEFINITE)
+                .setAction("Action", null).show();
+    }
+
 
     @Override
     public void onRefresh() {

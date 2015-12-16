@@ -78,7 +78,7 @@
                         android:layout_weight="1">
 
                         <TextView
-                            android:id="@+id/tv_title"
+                            android:id="@+id/tv_tag_line"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/margin_medium"
@@ -86,17 +86,17 @@
                             android:fontFamily="sans-serif-condensed"
                             android:textColor="@color/text_white"
                             android:textSize="@dimen/text_heading_1x"
-                            android:text="@{movie.title}"
+                            android:text="@{movie.tagline}"
                             tools:text="Ant-Man" />
 
                         <android.support.v4.widget.NestedScrollView
                             android:id="@+id/sv_overview"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_alignLeft="@id/tv_title"
-                            android:layout_below="@id/tv_title"
+                            android:layout_alignLeft="@id/tv_tag_line"
+                            android:layout_below="@id/tv_tag_line"
                             android:layout_marginTop="@dimen/margin_medium"
-                            android:paddingBottom="@dimen/margin_medium">
+                            android:paddingBottom="@dimen/margin_xlarge">
 
                             <TextView
                                 android:id="@+id/tv_overview"
@@ -116,14 +116,59 @@
 
                 </LinearLayout>
 
-                <net.aung.popularmovies.views.pods.ViewPodMoviePopularity
-                    android:id="@+id/vp_movie_popularity"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
                     android:paddingLeft="@dimen/margin_medium"
-                    android:paddingBottom="@dimen/margin_medium_2" />
+                    android:paddingBottom="@dimen/margin_small">
+
+                    <net.aung.popularmovies.views.pods.ViewPodMoviePopularityDetail
+                        android:id="@+id/vp_movie_popularity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="@dimen/margin_medium">
+
+                        <TextView
+                            android:id="@+id/tv_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_regular_3x"
+                            android:text="@{movie.status}"
+                            tools:text="Released" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_regular_3x"
+                            android:text=" : "/>
+
+                        <TextView
+                            android:id="@+id/tv_release_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_regular_3x"
+                            android:text="@{movie.releaseDateDisplay}"
+                            tools:text="2015-07-31" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
             </FrameLayout>
 
@@ -134,7 +179,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/tv_tag_line"
+                    android:id="@+id/tv_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/margin_medium_2"
@@ -145,10 +190,38 @@
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:elevation="@dimen/tag_line_elevation"
-                    android:text="Witness the defining chapter of the Middle-Earth saga"
+                    android:text="@{movie.title}"
                     android:textColor="@color/text_white"
                     android:background="@color/primary"
                     />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_medium">
+
+                    <TextView
+                        android:id="@+id/tv_runtime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/margin_medium"
+                        android:layout_gravity="right"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_regular"
+                        android:text="@{movie.runtimeDisplay}"
+                        android:background="@drawable/runtime_bg"
+                        tools:text="2 hours 31 min" />
+
+                    <net.aung.popularmovies.views.pods.ViewPodGenreList
+                        android:id="@+id/vp_container_genre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/margin_small"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="horizontal" />
+
+                </FrameLayout>
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/rv_trailers"
@@ -156,10 +229,21 @@
                     android:layout_height="@dimen/trailer_container_height"
                     android:columnWidth="@dimen/item_movie_height"
                     android:clipToPadding="false"
-                    android:layout_marginTop="@dimen/margin_medium_2"
                     android:paddingLeft="@dimen/margin_medium_2"
                     android:paddingRight="@dimen/margin_medium_2"
                     />
+
+                <net.aung.popularmovies.views.components.textview.DashUnderlineTextView
+                    android:id="@+id/tv_collection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/margin_medium_2"
+                    android:paddingBottom="@dimen/margin_medium_2"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textColor="@color/text_white"
+                    android:textSize="@dimen/text_regular_3x"
+                    android:text="@{movie.collection.name}"
+                    tools:text="The Super-hero Collection" />
 
             </LinearLayout>
 

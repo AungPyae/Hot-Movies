@@ -42,7 +42,21 @@ public class DataEvent {
     }
 
     public static class LoadedMovieDetailEvent {
+        private MovieVO movie;
+        private int movieId;
 
+        public LoadedMovieDetailEvent(MovieVO movie, int movieId) {
+            this.movie = movie;
+            this.movieId = movieId;
+        }
+
+        public MovieVO getMovie() {
+            return movie;
+        }
+
+        public int getMovieId() {
+            return movieId;
+        }
     }
 
     public static class LoadedMovieTrailerEvent {

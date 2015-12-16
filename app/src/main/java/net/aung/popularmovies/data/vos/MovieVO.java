@@ -2,6 +2,11 @@ package net.aung.popularmovies.data.vos;
 
 import com.google.gson.annotations.SerializedName;
 
+import net.aung.popularmovies.utils.DateFormatUtils;
+
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,20 +19,19 @@ public class MovieVO {
     public static final String IMAGE_SIZE_W185 = "w185";
     public static final String IMAGE_SIZE_W500 = "w500";
 
+    private static final String RUNTIME_FORMAT = "%1$d hrs %2$d mins";
+
     @SerializedName("id")
     private int id;
 
     @SerializedName("poster_path")
     private String posterPath;
 
-    @SerializedName("adult")
-    private boolean adult;
-
     @SerializedName("overview")
     private String overview;
 
     @SerializedName("release_date")
-    private String releaseDate;
+    private String releaseDateText;
 
     @SerializedName("genre_ids")
     private int[] genreIds;
@@ -50,13 +54,54 @@ public class MovieVO {
     @SerializedName("vote_count")
     private int voteCount;
 
-    @SerializedName("video")
-    private boolean video;
-
     @SerializedName("vote_average")
     private float voteAverage;
 
+    @SerializedName("adult")
+    private boolean isAdult;
+
+    @SerializedName("belongs_to_collection")
+    private CollectionVO collection;
+
+    @SerializedName("budget")
+    private long budget;
+
+    @SerializedName("genres")
+    private ArrayList<GenreVO> genreList;
+
+    @SerializedName("homepage")
+    private String homepage;
+
+    @SerializedName("imdb_id")
+    private String imdbId;
+
+    @SerializedName("production_companies")
+    private ArrayList<ProductionCompanyVO> productionCompanyList;
+
+    @SerializedName("production_countries")
+    private ArrayList<ProductionCountryVO> productionCountryList;
+
+    @SerializedName("revenue")
+    private long revenue;
+
+    @SerializedName("runtime")
+    private int runtime;
+
+    @SerializedName("spoken_languages")
+    private ArrayList<SpokenLanguageVO> spokenLanguageList;
+
+    @SerializedName("status")
+    private String status;
+
+    @SerializedName("tagline")
+    private String tagline;
+
+    @SerializedName("video")
+    private boolean isVideo;
+
     private List<TrailerVO> trailerList;
+    private boolean isDetailLoaded;
+    private Date releaseDate;
 
     public int getId() {
         return id;
@@ -66,16 +111,30 @@ public class MovieVO {
         return IMAGE_BASE_PATH + IMAGE_SIZE_W500 + posterPath;
     }
 
-    public boolean isAdult() {
-        return adult;
-    }
-
     public String getOverview() {
         return overview;
     }
 
-    public String getReleaseDate() {
+    public Date getReleaseDate() {
+        if (releaseDate == null) {
+            try {
+                releaseDate = DateFormatUtils.sdf_yyyy_mm_dd.parse(releaseDateText);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
         return releaseDate;
+    }
+
+    public String getReleaseDateDisplay() {
+        if (releaseDate == null) {
+            try {
+                releaseDate = DateFormatUtils.sdf_yyyy_mm_dd.parse(releaseDateText);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return DateFormatUtils.sdf_MMMM_yyyy.format(releaseDate);
     }
 
     public int[] getGenreIds() {
@@ -106,12 +165,70 @@ public class MovieVO {
         return voteCount;
     }
 
+    public boolean isAdult() {
+        return isAdult;
+    }
+
     public boolean isVideo() {
-        return video;
+        return isVideo;
     }
 
     public String getVoteAverage() {
         return String.format("%.1f", voteAverage);
+    }
+
+    public CollectionVO getCollection() {
+        return collection;
+    }
+
+    public long getBudget() {
+        return budget;
+    }
+
+    public ArrayList<GenreVO> getGenreList() {
+        return genreList;
+    }
+
+    public String getHomepage() {
+        return homepage;
+    }
+
+    public String getImdbId() {
+        return imdbId;
+    }
+
+    public ArrayList<ProductionCompanyVO> getProductionCompanyList() {
+        return productionCompanyList;
+    }
+
+    public ArrayList<ProductionCountryVO> getProductionCountryList() {
+        return productionCountryList;
+    }
+
+    public long getRevenue() {
+        return revenue;
+    }
+
+    public int getRuntime() {
+        return runtime;
+    }
+
+    public String getRuntimeDisplay() {
+        int hour = runtime / 60;
+        int minute = runtime % 60;
+        return String.format(RUNTIME_FORMAT, hour, minute);
+    }
+
+    public ArrayList<SpokenLanguageVO> getSpokenLanguageList() {
+        return spokenLanguageList;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getTagline() {
+        return tagline;
     }
 
     public List<TrailerVO> getTrailerList() {
@@ -120,5 +237,13 @@ public class MovieVO {
 
     public void setTrailerList(List<TrailerVO> trailerList) {
         this.trailerList = trailerList;
+    }
+
+    public boolean isDetailLoaded() {
+        return isDetailLoaded;
+    }
+
+    public void setIsDetailLoaded(boolean isDetailLoaded) {
+        this.isDetailLoaded = isDetailLoaded;
     }
 }

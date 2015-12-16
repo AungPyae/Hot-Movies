@@ -11,4 +11,5 @@ public interface MovieListView {
 
     boolean isMovieListEmpty();
     void displayMovieList(List<MovieVO> movieList, boolean isToAppend);
+    void displayFailToLoadData(String message);
 }

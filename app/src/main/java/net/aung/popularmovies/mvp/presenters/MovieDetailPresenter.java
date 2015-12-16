@@ -40,12 +40,14 @@ public class MovieDetailPresenter extends BasePresenter {
         movieDetailView.displayTrailerList(event.getResponse().getTrailerList());
     }
 
+    public void onEventMainThread(DataEvent.LoadedMovieDetailEvent event) {
+        MovieVO movieWithDetail = event.getMovie();
+        movieDetailView.displayMovieDetail(movieWithDetail);
+    }
+
     @Override
     public void onStop() {
 
     }
 
-    public void onEventMainThread(DataEvent.LoadedMovieDetailEvent event) {
-
-    }
 }

@@ -24,7 +24,8 @@ import net.aung.popularmovies.databinding.FragmentMovieDetailBinding;
 import net.aung.popularmovies.mvp.presenters.MovieDetailPresenter;
 import net.aung.popularmovies.mvp.views.MovieDetailView;
 import net.aung.popularmovies.views.components.recyclerview.TrailerItemDecoration;
-import net.aung.popularmovies.views.pods.ViewPodMoviePopularity;
+import net.aung.popularmovies.views.pods.ViewPodGenreList;
+import net.aung.popularmovies.views.pods.ViewPodMoviePopularityDetail;
 
 import java.util.List;
 
@@ -36,7 +37,7 @@ import butterknife.ButterKnife;
  */
 public class MovieDetailFragment extends BaseFragment
         implements MovieDetailView,
-        Palette.PaletteAsyncListener{
+        Palette.PaletteAsyncListener {
 
     private static final String ARG_MOVIE_ID = "ARG_MOVIE_ID";
 
@@ -48,7 +49,7 @@ public class MovieDetailFragment extends BaseFragment
     private TrailerItemController controller;
 
     @Bind(R.id.vp_movie_popularity)
-    ViewPodMoviePopularity vpMoviePopularity;
+    ViewPodMoviePopularityDetail vpMoviePopularity;
 
     @Bind(R.id.iv_poster)
     ImageView ivPoster;
@@ -59,8 +60,11 @@ public class MovieDetailFragment extends BaseFragment
     @Bind(R.id.rv_trailers)
     RecyclerView rvTrailers;
 
-    @Bind(R.id.tv_tag_line)
-    TextView tvTagLine;
+    @Bind(R.id.tv_title)
+    TextView tvTitle;
+
+    @Bind(R.id.vp_container_genre)
+    ViewPodGenreList vpContainerGenre;
 
     public static MovieDetailFragment newInstance(int movieId) {
         MovieDetailFragment fragment = new MovieDetailFragment();
@@ -134,7 +138,10 @@ public class MovieDetailFragment extends BaseFragment
     @Override
     public void displayMovieDetail(MovieVO movie) {
         binding.setMovie(movie);
-        vpMoviePopularity.drawPopularityIcons(movie.getPopularity());
+        vpContainerGenre.setGenreList(movie.getGenreList());
+        if (!movie.isDetailLoaded()) {
+            vpMoviePopularity.drawPopularityIcons(movie.getPopularity());
+        }
     }
 
     @Override
@@ -146,13 +153,13 @@ public class MovieDetailFragment extends BaseFragment
     public void onGenerated(Palette palette) {
         if (palette != null) {
 
-            final Palette.Swatch darkVibrantSwatch    = palette.getDarkVibrantSwatch();
-            final Palette.Swatch darkMutedSwatch      = palette.getDarkMutedSwatch();
-            final Palette.Swatch lightVibrantSwatch   = palette.getLightVibrantSwatch();
-            final Palette.Swatch lightMutedSwatch     = palette.getLightMutedSwatch();
+            final Palette.Swatch darkVibrantSwatch = palette.getDarkVibrantSwatch();
+            final Palette.Swatch darkMutedSwatch = palette.getDarkMutedSwatch();
+            final Palette.Swatch lightVibrantSwatch = palette.getLightVibrantSwatch();
+            final Palette.Swatch lightMutedSwatch = palette.getLightMutedSwatch();
 
             //-- start here.
-            final Palette.Swatch vibrantSwatch        = palette.getVibrantSwatch();
+            final Palette.Swatch vibrantSwatch = palette.getVibrantSwatch();
 
             final Palette.Swatch colorDarkVaient = (darkVibrantSwatch != null)
                     ? darkVibrantSwatch : darkMutedSwatch;
@@ -171,9 +178,9 @@ public class MovieDetailFragment extends BaseFragment
     }
 
     private void setPaletteforTagLine(Palette.Swatch colorDarkVaient, Palette.Swatch colorLightVarient) {
-        if(colorDarkVaient != null && colorLightVarient != null) {
-            tvTagLine.setTextColor(colorDarkVaient.getRgb());
-            tvTagLine.setBackgroundColor(colorLightVarient.getRgb());
+        if (colorDarkVaient != null && colorLightVarient != null) {
+            tvTitle.setTextColor(colorDarkVaient.getRgb());
+            tvTitle.setBackgroundColor(colorLightVarient.getRgb());
         }
     }
 }

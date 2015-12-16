@@ -3,6 +3,7 @@ package net.aung.popularmovies.restapi;
 import net.aung.popularmovies.BuildConfig;
 import net.aung.popularmovies.data.responses.MovieDiscoverResponse;
 import net.aung.popularmovies.data.responses.MovieTrailerResponse;
+import net.aung.popularmovies.data.vos.MovieVO;
 import net.aung.popularmovies.events.DataEvent;
 import net.aung.popularmovies.utils.CommonInstances;
 
@@ -48,12 +49,10 @@ public class MovieDataSourceImpl implements MovieDataSource {
         movieDiscoverResponseCall.enqueue(new MovieApiCallback<MovieDiscoverResponse>() {
             @Override
             public void onResponse(Response<MovieDiscoverResponse> response, Retrofit retrofit) {
+                super.onResponse(response, retrofit);
                 MovieDiscoverResponse movieDiscoverResponse = response.body();
                 if (movieDiscoverResponse != null) {
                     DataEvent.LoadedMovieDiscoverEvent event = new DataEvent.LoadedMovieDiscoverEvent(movieDiscoverResponse, isForce);
-                    EventBus.getDefault().post(event);
-                } else {
-                    DataEvent.FailedToLoadDataEvent event = new DataEvent.FailedToLoadDataEvent(response.message());
                     EventBus.getDefault().post(event);
                 }
             }
@@ -67,9 +66,26 @@ public class MovieDataSourceImpl implements MovieDataSource {
         movieTrailerResponseCall.enqueue(new MovieApiCallback<MovieTrailerResponse>() {
             @Override
             public void onResponse(Response<MovieTrailerResponse> response, Retrofit retrofit) {
+                super.onResponse(response, retrofit);
                 MovieTrailerResponse movieTrailerResponse = response.body();
                 if (movieTrailerResponse != null) {
                     DataEvent.LoadedMovieTrailerEvent event = new DataEvent.LoadedMovieTrailerEvent(movieTrailerResponse, movieId);
+                    EventBus.getDefault().post(event);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void getMovieDetail(final int movieId) {
+        Call<MovieVO> movieDetailCall = theMovieApi.getMovieDetailByMovieId(movieId, BuildConfig.THE_MOVIE_API_KEY);
+        movieDetailCall.enqueue(new MovieApiCallback<MovieVO>() {
+            @Override
+            public void onResponse(Response<MovieVO> response, Retrofit retrofit) {
+                super.onResponse(response, retrofit);
+                MovieVO movieDetailResponse = response.body();
+                if (movieDetailResponse != null) {
+                    DataEvent.LoadedMovieDetailEvent event = new DataEvent.LoadedMovieDetailEvent(movieDetailResponse, movieId);
                     EventBus.getDefault().post(event);
                 }
             }
