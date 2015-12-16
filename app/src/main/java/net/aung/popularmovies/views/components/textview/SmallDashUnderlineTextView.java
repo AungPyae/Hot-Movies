@@ -44,7 +44,7 @@ public class SmallDashUnderlineTextView extends TextView {
         setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
         setTextColor(getResources().getColor(android.R.color.white));
         setTextSize(14);
-        setPadding(0,0,0, (int) getResources().getDimension(R.dimen.margin_medium_2));
+        setPadding(0,0,0, (int) getResources().getDimension(R.dimen.margin_medium));
     }
 
     @Override

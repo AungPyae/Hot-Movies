@@ -29,21 +29,22 @@ public class ViewPodGenreList extends LinearLayout {
     }
 
     public void setGenreList(List<GenreVO> genreList) {
-        if(genreList == null)
+        if (genreList == null)
             return;
 
-        for (int position = 0; position < genreList.size(); position++) {
-            TextView tv = new SmallDashUnderlineTextView(getContext());
-            tv.setText(genreList.get(position).getName());
-            tv.setPadding((int) getContext().getResources().getDimension(R.dimen.margin_small), 0, 0, 0);
-            addView(tv);
+        if (getChildCount() == 0) {
+            for (int position = 0; position < genreList.size(); position++) {
+                TextView tv = new SmallDashUnderlineTextView(getContext());
+                tv.setText(genreList.get(position).getName());
+                addView(tv);
 
-            if (position < genreList.size() - 1) {
-                TextView tvSeparator = new TextView(getContext());
-                tvSeparator.setTextSize(14);
-                tvSeparator.setTextColor(getContext().getResources().getColor(android.R.color.white));
-                tvSeparator.setText(" | ");
-                addView(tvSeparator);
+                if (position < genreList.size() - 1) {
+                    TextView tvSeparator = new TextView(getContext());
+                    tvSeparator.setTextSize(14);
+                    tvSeparator.setTextColor(getContext().getResources().getColor(android.R.color.white));
+                    tvSeparator.setText(" | ");
+                    addView(tvSeparator);
+                }
             }
         }
     }

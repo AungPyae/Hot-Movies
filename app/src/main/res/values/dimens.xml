@@ -33,7 +33,7 @@
     <dimen name="trailer_container_height">212dp</dimen>
     <dimen name="trailer_container_width">264dp</dimen>
 
-    <dimen name="movie_detal_backdrop_height">310dp</dimen>
+    <dimen name="movie_detal_backdrop_height">334dp</dimen>
 
     <dimen name="movie_title_min_height">60dp</dimen>
     <dimen name="loader_dimen">55dp</dimen>
@@ -41,4 +41,5 @@
     <dimen name="tag_line_elevation">4dp</dimen>
 
     <dimen name="runtime_border_stroke">2dp</dimen>
+    <dimen name="detail_padding_bottom_navigation">40dp</dimen>
 </resources>

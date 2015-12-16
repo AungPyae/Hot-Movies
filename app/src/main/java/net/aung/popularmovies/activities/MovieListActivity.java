@@ -21,8 +21,7 @@ import net.aung.popularmovies.fragments.MovieListFragment;
 import net.aung.popularmovies.utils.YoutubeUtils;
 
 public class MovieListActivity extends BaseActivity
-        implements MovieItemController,
-        TrailerItemController{
+        implements MovieItemController {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,15 +72,14 @@ public class MovieListActivity extends BaseActivity
 
     @Override
     public void onNavigateToDetail(MovieVO movie) {
+        MovieDetailActivity.startActivity(this, movie.getId());
+
+        /*
         getSupportFragmentManager().beginTransaction()
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 .replace(R.id.fl_container, MovieDetailFragment.newInstance(movie.getId()))
                 .addToBackStack(null)
                 .commit();
-    }
-
-    @Override
-    public void onShowTrailer(TrailerVO trailer) {
-        YoutubeUtils.getObjInstance().playYoutbueVideo(this, trailer.getKey());
+                */
     }
 }

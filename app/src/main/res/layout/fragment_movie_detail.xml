@@ -19,11 +19,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/detail_padding_bottom_navigation">
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/movie_detal_backdrop_height">
+                android:layout_height="@dimen/movie_detal_backdrop_height"
+                android:focusableInTouchMode="true">
 
                 <ImageView
                     android:id="@+id/iv_backdrop"
@@ -32,12 +34,14 @@
                     android:foreground="@color/black_transparent_overlay"
                     android:scaleType="centerCrop"
                     app:imageUrl="@{movie.backdropPath}"
-                    tools:src="@drawable/movie_backdrop" />
+                    tools:src="@drawable/movie_backdrop"
+                    />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:paddingRight="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_large"
                     android:orientation="horizontal"
                     android:weightSum="2">
 
@@ -195,17 +199,32 @@
                     android:background="@color/primary"
                     />
 
-                <FrameLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_medium">
+                    android:layout_margin="@dimen/margin_medium"
+                    android:orientation="vertical">
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <net.aung.popularmovies.views.pods.ViewPodGenreList
+                            android:id="@+id/vp_container_genre"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_medium"
+                            android:orientation="horizontal" />
+
+                    </HorizontalScrollView>
 
                     <TextView
                         android:id="@+id/tv_runtime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/margin_medium"
-                        android:layout_gravity="right"
+                        android:layout_marginLeft="@dimen/margin_medium"
                         android:fontFamily="sans-serif-light"
                         android:textColor="@color/text_white"
                         android:textSize="@dimen/text_regular"
@@ -213,15 +232,7 @@
                         android:background="@drawable/runtime_bg"
                         tools:text="2 hours 31 min" />
 
-                    <net.aung.popularmovies.views.pods.ViewPodGenreList
-                        android:id="@+id/vp_container_genre"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/margin_small"
-                        android:layout_gravity="center_vertical"
-                        android:orientation="horizontal" />
-
-                </FrameLayout>
+                </LinearLayout>
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/rv_trailers"
