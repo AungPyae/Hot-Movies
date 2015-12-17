@@ -2,7 +2,6 @@ package net.aung.popularmovies.mvp.views;
 
 import net.aung.popularmovies.data.vos.MovieVO;
 import net.aung.popularmovies.data.vos.TrailerVO;
-import net.aung.popularmovies.views.viewholders.TrailerViewHolder;
 
 import java.util.List;
 

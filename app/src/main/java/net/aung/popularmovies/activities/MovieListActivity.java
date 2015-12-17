@@ -9,10 +9,10 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import net.aung.popularmovies.R;
 import net.aung.popularmovies.controllers.MovieItemController;
-import net.aung.popularmovies.data.vos.MovieVO;
 import net.aung.popularmovies.fragments.MovieListFragment;
+import net.aung.popularmovies.R;
+import net.aung.popularmovies.data.vos.MovieVO;
 import net.aung.popularmovies.menus.LeftMenuFragment;
 
 import butterknife.Bind;

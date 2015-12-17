@@ -1,13 +1,10 @@
 package net.aung.popularmovies.views.components.recyclerview;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-
-import net.aung.popularmovies.views.components.recyclerview.DividerItemDecoration;
 
 /**
  * Created by aung on 12/12/15.

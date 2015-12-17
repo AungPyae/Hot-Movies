@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".PopularMoviesApplication"
+        android:name="net.aung.popularmovies.PopularMoviesApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".activities.MovieListActivity"
+            android:name="net.aung.popularmovies.activities.MovieListActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -24,13 +24,13 @@
         </activity>
 
         <activity
-            android:name=".activities.MovieDetailActivity"
+            android:name="net.aung.popularmovies.activities.MovieDetailActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".activities.MovieListActivity"
+            android:parentActivityName="net.aung.popularmovies.activities.MovieListActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.MovieListActivity" />
+                android:value="net.aung.popularmovies.activities.MovieListActivity" />
         </activity>
     </application>
 

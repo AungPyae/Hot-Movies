@@ -6,8 +6,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 
-import net.aung.popularmovies.R;
-
 /**
  * Created by aung on 12/12/15.
  */

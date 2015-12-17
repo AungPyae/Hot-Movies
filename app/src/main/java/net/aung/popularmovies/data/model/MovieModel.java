@@ -4,13 +4,13 @@ import android.os.AsyncTask;
 import android.support.v4.util.ArrayMap;
 import android.util.Log;
 
-import net.aung.popularmovies.PopularMoviesApplication;
-import net.aung.popularmovies.restapi.responses.MovieDiscoverResponse;
 import net.aung.popularmovies.data.vos.GenreVO;
 import net.aung.popularmovies.data.vos.MovieVO;
+import net.aung.popularmovies.restapi.MovieDataSource;
+import net.aung.popularmovies.restapi.responses.MovieDiscoverResponse;
+import net.aung.popularmovies.PopularMoviesApplication;
 import net.aung.popularmovies.data.vos.TrailerVO;
 import net.aung.popularmovies.events.DataEvent;
-import net.aung.popularmovies.restapi.MovieDataSource;
 import net.aung.popularmovies.restapi.MovieDataSourceImpl;
 import net.aung.popularmovies.restapi.RestApiConstants;
 import net.aung.popularmovies.utils.CommonInstances;

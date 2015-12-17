@@ -13,9 +13,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 
+import net.aung.popularmovies.controllers.MovieItemController;
 import net.aung.popularmovies.PopularMoviesApplication;
 import net.aung.popularmovies.R;
-import net.aung.popularmovies.controllers.MovieItemController;
 import net.aung.popularmovies.data.vos.GenreVO;
 import net.aung.popularmovies.data.vos.MovieVO;
 import net.aung.popularmovies.databinding.ViewItemMovieBinding;

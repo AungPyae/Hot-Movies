@@ -14,17 +14,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import net.aung.popularmovies.PopularMoviesApplication;
-import net.aung.popularmovies.R;
 import net.aung.popularmovies.adapters.TrailerListAdapter;
-import net.aung.popularmovies.controllers.TrailerItemController;
-import net.aung.popularmovies.data.vos.MovieVO;
 import net.aung.popularmovies.data.vos.TrailerVO;
-import net.aung.popularmovies.databinding.FragmentMovieDetailBinding;
 import net.aung.popularmovies.mvp.presenters.MovieDetailPresenter;
 import net.aung.popularmovies.mvp.views.MovieDetailView;
-import net.aung.popularmovies.views.components.recyclerview.TrailerItemDecoration;
 import net.aung.popularmovies.views.pods.ViewPodGenreListDetail;
+import net.aung.popularmovies.PopularMoviesApplication;
+import net.aung.popularmovies.R;
+import net.aung.popularmovies.controllers.TrailerItemController;
+import net.aung.popularmovies.data.vos.MovieVO;
+import net.aung.popularmovies.databinding.FragmentMovieDetailBinding;
+import net.aung.popularmovies.views.components.recyclerview.TrailerItemDecoration;
 import net.aung.popularmovies.views.pods.ViewPodMoviePopularityDetail;
 
 import java.util.List;

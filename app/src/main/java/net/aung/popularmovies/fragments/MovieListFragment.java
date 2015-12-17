@@ -2,9 +2,7 @@ package net.aung.popularmovies.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,13 +12,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import net.aung.popularmovies.R;
 import net.aung.popularmovies.adapters.MovieListAdapter;
 import net.aung.popularmovies.controllers.MovieItemController;
 import net.aung.popularmovies.data.vos.MovieVO;
 import net.aung.popularmovies.mvp.presenters.MovieListPresenter;
 import net.aung.popularmovies.mvp.views.MovieListView;
 import net.aung.popularmovies.views.components.recyclerview.SmartScrollListener;
+import net.aung.popularmovies.R;
 
 import java.util.List;
 
@@ -33,7 +31,7 @@ import butterknife.ButterKnife;
 public class MovieListFragment extends BaseFragment
         implements MovieListView,
         SwipeRefreshLayout.OnRefreshListener,
-        SmartScrollListener.ControllerSmartScroll{
+        SmartScrollListener.ControllerSmartScroll {
 
     @Bind(R.id.rv_movies)
     RecyclerView rvMovies;

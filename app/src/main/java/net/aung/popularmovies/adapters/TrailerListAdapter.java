@@ -7,13 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import net.aung.popularmovies.R;
-import net.aung.popularmovies.controllers.MovieItemController;
 import net.aung.popularmovies.controllers.TrailerItemController;
-import net.aung.popularmovies.data.vos.MovieVO;
 import net.aung.popularmovies.data.vos.TrailerVO;
-import net.aung.popularmovies.views.viewholders.MovieViewHolder;
 import net.aung.popularmovies.views.viewholders.TrailerViewHolder;
+import net.aung.popularmovies.R;
 
 import java.util.ArrayList;
 import java.util.List;

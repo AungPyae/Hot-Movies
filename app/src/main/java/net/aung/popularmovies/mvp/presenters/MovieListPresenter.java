@@ -1,16 +1,10 @@
 package net.aung.popularmovies.mvp.presenters;
 
 import android.support.annotation.NonNull;
-import android.util.Log;
 
-import net.aung.popularmovies.PopularMoviesApplication;
 import net.aung.popularmovies.data.model.MovieModel;
-import net.aung.popularmovies.data.vos.MovieVO;
 import net.aung.popularmovies.events.DataEvent;
 import net.aung.popularmovies.mvp.views.MovieListView;
-import net.aung.popularmovies.views.components.recyclerview.SmartScrollListener;
-
-import java.util.List;
 
 /**
  * Created by aung on 12/12/15.

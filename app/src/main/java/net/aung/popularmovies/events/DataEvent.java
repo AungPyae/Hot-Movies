@@ -1,9 +1,9 @@
 package net.aung.popularmovies.events;
 
-import net.aung.popularmovies.restapi.responses.GenreListResponse;
+import net.aung.popularmovies.data.vos.MovieVO;
 import net.aung.popularmovies.restapi.responses.MovieDiscoverResponse;
 import net.aung.popularmovies.restapi.responses.MovieTrailerResponse;
-import net.aung.popularmovies.data.vos.MovieVO;
+import net.aung.popularmovies.restapi.responses.GenreListResponse;
 
 import java.util.ArrayList;
 
